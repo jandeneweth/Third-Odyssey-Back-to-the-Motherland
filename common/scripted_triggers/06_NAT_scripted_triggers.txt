@@ -1,0 +1,86 @@
+nhs_has_advanced_native_government = {
+	OR = {
+		government = nhs_advanced_native_council
+		government = nhs_native_republic
+		government = nhs_native_kingdom
+		government = nhs_native_theocracy
+	}
+}
+
+nhs_redone_native_government = {
+	OR = {
+		nhs_has_advanced_native_government = yes
+		government = nhs_native_early_theocracy
+		government = nhs_native_horde
+		government = nhs_centralised_native_council
+		government = nhs_reformed_native_council
+		government = native_council2
+		government = native_council
+	}
+}
+
+
+
+is_eligible_for_advancement_points = {
+	nhs_redone_native_government = yes
+	OR = {
+		NOT = { mil_tech = 10 }
+		nhs_has_advanced_native_government = yes
+	}
+	OR = {
+		technology_group = north_american
+		technology_group = hellenised_american
+	}
+}
+
+is_considered_advanced = {
+	OR = {
+		AND = {
+			NOT = { technology_group = north_american }
+			NOT = { technology_group = hellenised_american }
+			NOT = { technology_group = andean }
+			NOT = { technology_group = south_american }
+			NOT = { technology_group = mesoamerican }
+		}
+		nhs_has_advanced_native_government = yes
+	}
+	OR = {
+		ROOT = { NOT = { nhs_has_advanced_native_government = yes } }
+		AND = {
+			mil_tech = 2
+			ROOT = { NOT = { mil_tech = 2 } }
+		}
+		AND = {
+			mil_tech = 3
+			ROOT = { NOT = { mil_tech = 2 } }
+		}
+		AND = {
+			mil_tech = 4
+			ROOT = { NOT = { mil_tech = 2 } }
+		}
+		AND = {
+			mil_tech = 5
+			ROOT = { NOT = { mil_tech = 2 } }
+		}
+		AND = {
+			mil_tech = 6
+			ROOT = { NOT = { mil_tech = 2 } }
+		}
+		AND = {
+			mil_tech = 7
+			ROOT = { NOT = { mil_tech = 2 } }
+		}
+		AND = {
+			mil_tech = 8
+			ROOT = { NOT = { mil_tech = 2 } }
+		}
+		AND = {
+			mil_tech = 9
+			ROOT = { NOT = { mil_tech = 2 } }
+		}
+		AND = {
+			mil_tech = 10
+			ROOT = { NOT = { mil_tech = 2 } }
+		}
+	}
+}

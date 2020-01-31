@@ -1,0 +1,144 @@
+country_decisions = {
+
+
+	# Remove trade power handicap
+	nhs_advancement_point_basic = {
+		major = yes
+		potential = {
+			is_eligible_for_advancement_points = yes
+		}
+
+		allow = {
+			always = no
+		}
+
+		effect = {
+			custom_tooltip = nhs_advancement_points_basic_tt
+			if = {
+				limit = {
+					any_known_country = {
+						is_considered_advanced = yes
+						alliance_with = ROOT
+					}
+				}
+				custom_tooltip = nhs_advancement_points_alliance
+			}
+			else_if = {
+				limit = {
+					any_known_country = {
+						is_considered_advanced = yes
+						has_opinion = {
+							who = ROOT
+							value = 70
+						}
+					}	
+				}
+				custom_tooltip = nhs_advancement_points_opinion
+			}
+			if = {
+				limit = {
+					any_neighbor_country = {
+						is_considered_advanced = yes
+						OR = {
+							has_opinion = {
+								who = ROOT
+								value = 70
+							}
+							alliance_with = ROOT
+						}
+					}
+				}
+				custom_tooltip = nhs_advancement_points_neighbor_friendly
+			}
+			else_if = {
+				limit = {
+					any_neighbor_country = {
+						is_considered_advanced = yes
+						has_opinion = {
+							who = ROOT
+							value = 0
+						}
+						NOT = { war_with = ROOT }
+					}
+				}
+				custom_tooltip = nhs_advancement_points_neighbor_neutral
+			}
+			else_if = {
+				limit = {
+					any_neighbor_country = {
+						is_considered_advanced = yes
+						OR = {
+							NOT = {
+								has_opinion = {
+									who = ROOT
+									value = 0
+								}
+							}
+							war_with = ROOT
+						}
+					}
+				}
+				custom_tooltip = nhs_advancement_points_neighbor_hostile
+			}
+			else_if = {
+				limit = {
+					any_country = {
+						is_considered_advanced = yes
+						OR = {
+							any_active_trade_node = {
+								any_trade_node_member_province = {
+									owned_by = ROOT
+								}
+							}
+							home_trade_node = {
+								any_trade_node_member_province = {
+									owned_by = ROOT
+								}
+							}
+						}
+						has_opinion = {
+							who = ROOT
+							value = 0
+						}
+					}
+				}
+				custom_tooltip = nhs_advancement_points_merchants
+			}
+			if = {
+				limit = {
+					is_subject = yes
+					overlord = {
+						is_considered_advanced = yes
+					}
+				}
+				custom_tooltip = nhs_advancement_points_overlord
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						has_institution = feudalism
+					}
+				}
+				custom_tooltip = nhs_advancement_points_feudalism
+			}
+			custom_tooltip = nhs_br
+			if = {
+				limit = {
+					has_any_disaster = yes
+				}
+				custom_tooltip = nhs_advancement_points_disaster
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						prs_has_smallpox = yes
+					}
+				}
+				custom_tooltip = nhs_advancement_points_plague
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
