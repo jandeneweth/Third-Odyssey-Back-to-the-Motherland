@@ -1,0 +1,397 @@
+#OLD
+
+native_council_after = {
+	valid_for_new_country = no
+	allow_convert = no
+	royal_marriage = yes
+	republican_name = yes
+	unique_government = yes
+	
+	color = { 160 82 45 }
+	
+	max_states = 3
+	
+	ai_will_do = {
+		factor = 0
+	}
+
+	rank = {
+		1 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			global_autonomy = -0.05
+			max_absolutism = -30
+		}
+		2 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			land_forcelimit_modifier = 0.10
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+		3 = {
+			stability_cost_modifier = -0.15
+			land_maintenance_modifier = -0.15
+			land_forcelimit_modifier = 0.15
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+	}
+}
+
+great_clans_council = {
+	
+	color = { 220 210 160 }
+	
+	valid_for_new_country = no
+	allow_convert = no
+	
+	republican_name = yes
+	unique_government = yes
+	
+	ai_will_do = {
+		factor = 0
+	}
+
+	rank = {
+		3 = {
+			land_forcelimit_modifier = 0.20
+			land_maintenance_modifier = -0.20
+			diplomatic_upkeep = 3
+			max_absolutism = -30
+		}
+	}
+	fixed_rank = 3
+}
+
+#NEW AND REWORKED
+#TIER 1
+#For the Sedentary Americans
+native_council2 = {
+	
+	color = { 220 210 160 }
+	
+	valid_for_new_country = no
+	allow_convert = no
+	
+	republican_name = yes
+	unique_government = yes
+	
+	ai_will_do = {
+		factor = 0
+	}
+
+	rank = {
+		1 = {
+			stability_cost_modifier = -0.33
+			land_maintenance_modifier = -0.5
+			global_institution_spread = -0.025
+			max_absolutism = -30
+		}
+	}
+	fixed_rank = 1
+}
+
+#TIER 2
+nhs_reformed_native_council = {
+	valid_for_new_country = no
+	allow_convert = no
+	royal_marriage = yes
+	republican_name = yes
+	unique_government = yes
+	
+	color = { 160 82 45 }
+	
+	max_states = 3
+	
+	ai_will_do = {
+		factor = 0
+	}
+
+	rank = {
+		1 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			global_autonomy = -0.05
+			max_absolutism = -30
+		}
+		2 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			land_forcelimit_modifier = 0.10
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+	}
+}
+
+nhs_centralised_native_council = {
+	valid_for_new_country = no
+	allow_convert = no
+	royal_marriage = yes
+	republican_name = yes
+	unique_government = yes
+	
+	color = { 160 82 45 }
+	
+	max_states = 3
+	
+	ai_will_do = {
+		factor = 0
+	}
+
+	rank = {
+		1 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			global_autonomy = -0.05
+			max_absolutism = -30
+		}
+		2 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			land_forcelimit_modifier = 0.10
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+		3 = {
+			stability_cost_modifier = -0.15
+			land_maintenance_modifier = -0.15
+			land_forcelimit_modifier = 0.15
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+	}
+}
+
+nhs_native_horde = {
+	valid_for_new_country = no
+	allow_convert = no
+	royal_marriage = yes
+	republican_name = yes
+	unique_government = yes
+	
+	color = { 160 82 45 }
+	
+	max_states = 3
+	
+	ai_will_do = {
+		factor = 0
+	}
+
+	rank = {
+		1 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			global_autonomy = -0.05
+			max_absolutism = -30
+		}
+		2 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			land_forcelimit_modifier = 0.10
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+		3 = {
+			stability_cost_modifier = -0.15
+			land_maintenance_modifier = -0.15
+			land_forcelimit_modifier = 0.15
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+	}
+}
+
+nhs_native_early_theocracy = {
+	valid_for_new_country = no
+	allow_convert = no
+	royal_marriage = yes
+	republican_name = yes
+	unique_government = yes
+	
+	color = { 160 82 45 }
+	
+	max_states = 3
+	
+	ai_will_do = {
+		factor = 0
+	}
+
+	rank = {
+		1 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			global_autonomy = -0.05
+			max_absolutism = -30
+		}
+		2 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			land_forcelimit_modifier = 0.10
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+		3 = {
+			stability_cost_modifier = -0.15
+			land_maintenance_modifier = -0.15
+			land_forcelimit_modifier = 0.15
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+	}
+}
+#TIER 3
+nhs_advanced_native_council = {
+	valid_for_new_country = no
+	allow_convert = no
+	royal_marriage = yes
+	republican_name = yes
+	unique_government = yes
+	
+	color = { 160 82 45 }
+	
+	max_states = 3
+	
+	ai_will_do = {
+		factor = 0
+	}
+
+	rank = {
+		1 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			global_autonomy = -0.05
+			max_absolutism = -30
+		}
+		2 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			land_forcelimit_modifier = 0.10
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+		3 = {
+			stability_cost_modifier = -0.15
+			land_maintenance_modifier = -0.15
+			land_forcelimit_modifier = 0.15
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+	}
+}
+nhs_native_republic = {
+	valid_for_new_country = no
+	allow_convert = no
+	royal_marriage = yes
+	republican_name = yes
+	unique_government = yes
+	
+	color = { 160 82 45 }
+	
+	max_states = 3
+	
+	ai_will_do = {
+		factor = 0
+	}
+
+	rank = {
+		1 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			global_autonomy = -0.05
+			max_absolutism = -30
+		}
+		2 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			land_forcelimit_modifier = 0.10
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+		3 = {
+			stability_cost_modifier = -0.15
+			land_maintenance_modifier = -0.15
+			land_forcelimit_modifier = 0.15
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+	}
+}
+nhs_native_kingdom = {
+	valid_for_new_country = no
+	allow_convert = no
+	royal_marriage = yes
+	republican_name = yes
+	unique_government = yes
+	
+	color = { 160 82 45 }
+	
+	max_states = 3
+	
+	ai_will_do = {
+		factor = 0
+	}
+
+	rank = {
+		1 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			global_autonomy = -0.05
+			max_absolutism = -30
+		}
+		2 = {
+			stability_cost_modifier = -0.10
+			land_maintenance_modifier = -0.10
+			land_forcelimit_modifier = 0.10
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+		3 = {
+			stability_cost_modifier = -0.15
+			land_maintenance_modifier = -0.15
+			land_forcelimit_modifier = 0.15
+			global_autonomy = -0.1
+			max_absolutism = -30
+		}
+	}
+}
+nhs_native_theocracy = {
+	color = { 102 51 153 }
+	
+	valid_for_new_country = no
+	allow_convert = no
+	religion = yes
+	republican_name = yes
+	unique_government = yes
+	has_devotion = yes
+	max_states = 3
+	
+	ai_will_do = {
+		factor = 0
+	}
+
+	rank = {
+		1 = {
+			tolerance_own = 1
+			tolerance_heathen = -1
+			tolerance_heretic = -1
+			stability_cost_modifier = -0.15
+			land_maintenance_modifier = -0.15
+		}
+		2 = {
+			tolerance_own = 1
+			tolerance_heathen = -1
+			tolerance_heretic = -1
+			stability_cost_modifier = -0.20
+			land_maintenance_modifier = -0.20
+		}
+		3 = {
+			tolerance_own = 2
+			tolerance_heathen = -1
+			tolerance_heretic = -1
+			stability_cost_modifier = -0.25
+			land_maintenance_modifier = -0.25
+		}
+	}
+}

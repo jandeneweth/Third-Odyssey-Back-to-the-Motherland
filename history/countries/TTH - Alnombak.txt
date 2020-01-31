@@ -1,0 +1,15 @@
+government = native government_rank = 2
+primary_culture = abenaki
+religion = totemism
+technology_group = north_american
+capital = 2565	# Abnaki
+
+
+1411.5.6 = {
+	monarch = {
+		name = "Abornazine"
+		adm = 5
+		dip = 2
+		mil = 4
+	}
+}

@@ -1,6 +1,12 @@
 ﻿l_english:
  GCC:0 "Great Clans Confederacy"
  GCC_ADJ:0 "Confederate"
+ TTH:0 "Alnombak"
+ GCC_TTH:0 "Alnombaki"
+ nhs_native_theocracy:0 "Native Theocracy"
+ NAT_THEO:0 "Native Theocracy"
+ PROPHET:0 "Prophet"
+ nhs_native_theocracy_desc:0 "TO DO"
  great_clans_council:0 "Great Clans Confederacy"
  great_clans_council_desc:0 "The federation consists of many clans, all of them having their own representatives in the council"
  great_clans_council_ruler:0 "Council Representative"

@@ -1,0 +1,536 @@
+namespace = nhs2_p
+
+country_event = {
+	id = nhs2_p.6
+	title = nhs2_p.6.t
+	desc = nhs2_p.6.d
+	picture = COURT_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		NHS = {
+			every_owned_province = {
+				set_province_flag = nhs_elysianism_new
+			}
+		}
+	}
+	option = {
+		name = nhs2_bookmark.3.a
+	}
+}
+
+country_event = {
+	id = nhs2_p.5
+	title = nhs2_p.5.t
+	desc = nhs2_p.5.d
+	picture = COURT_eventPicture
+	
+	hidden = yes
+	trigger = {
+		any_province = {
+			continent = north_america
+			OR = {
+				feudalism = 100
+				has_province_flag = nhs_elysianism
+				has_province_flag = nhs_elysianism_old
+				has_province_flag = nhs_elysianism_new
+			}
+		}
+		any_province = {
+			continent = north_america
+			NOT = { has_province_flag = nhs_elysianism }
+			NOT = { has_province_flag = nhs_elysianism_old }
+			NOT = { has_province_flag = nhs_elysianism_new }
+			NOT = { feudalism = 100 }
+		}
+		OR = {
+			NOT = { has_global_flag = nhs_elysianism_spread_cd }
+			had_global_flag = {
+				flag = nhs_elysianism_spread_cd
+				days = 1825
+			}
+		}
+		is_year = 1450
+	}
+	
+	immediate = {
+		clr_global_flag = nhs_elysianism_spread_cd
+		set_global_flag = nhs_elysianism_spread_cd
+		every_province = {
+			limit = {
+				has_province_flag = nhs_elysianism
+			}
+			clr_province_flag = nhs_elysianism
+			set_province_flag = nhs_elysianism_old
+		}
+		every_province = {
+			limit = {
+				has_province_flag = nhs_elysianism_new
+			}
+			clr_province_flag = nhs_elysianism_new
+			set_province_flag = nhs_elysianism
+		}
+		every_province = {
+			limit = {
+				OR = {
+					any_neighbor_province = {
+						OR = {
+							has_province_flag = nhs_elysianism
+							feudalism = 100
+						}
+						continent = north_america
+					}
+					any_empty_neighbor_province = {
+						OR = {
+							has_province_flag = nhs_elysianism
+							feudalism = 100
+						}
+						continent = north_america
+					}
+				}
+				OR = {
+					NOT = {
+						AND = {
+							area = james_bay_area
+							OR = {
+								has_port = yes
+								province_id = 1002
+							}
+						}
+					}
+					AND = {
+						province_id = 1002
+						OR = {
+							2580 = {
+								OR = {
+									has_province_flag = nhs_elysianism
+									feudalism = 100
+								}
+							}
+							2581 = {
+								OR = {
+									has_province_flag = nhs_elysianism
+									feudalism = 100
+								}
+							}
+						}
+					}
+					OR = {
+						any_neighbor_province = {
+							OR = {
+								has_province_flag = nhs_elysianism
+								feudalism = 100
+							}
+							OR = {
+								area = james_bay_area
+								area = hudson_bay_area
+							}
+							continent = north_america
+						}
+						any_empty_neighbor_province = {
+							OR = {
+								has_province_flag = nhs_elysianism
+								feudalism = 100
+							}
+							OR = {
+								area = james_bay_area
+								area = hudson_bay_area
+							}
+							continent = north_america
+						}
+					}
+				}
+				NOT = { has_province_flag = nhs_elysianism }
+				NOT = { has_province_flag = nhs_elysianism_new }
+				NOT = { has_province_flag = nhs_elysianism_old }
+				continent = north_america
+			}
+			set_province_flag = nhs_elysianism_new
+			#if = { #testing only
+			#	limit = {
+			#		is_capital = no
+			#	}
+			#	cede_province = MSG
+			#}
+		}
+	}
+	option = {
+		name = nhs2_bookmark.3.a
+	}
+}
+
+country_event = {
+	id = nhs2_p.1
+	title = nhs2_p.1.t
+	desc = nhs2_p.1.d
+	picture = COURT_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	trigger = {
+		any_province = {
+			continent = north_america
+			OR = {
+				feudalism = 100
+				has_province_flag = nhs_elysianism
+				has_province_flag = nhs_elysianism_old
+				has_province_flag = nhs_elysianism_new
+			}
+		}
+		any_province = {
+			continent = north_america
+			NOT = { has_province_flag = nhs_elysianism }
+			NOT = { has_province_flag = nhs_elysianism_old }
+			NOT = { has_province_flag = nhs_elysianism_new }
+			NOT = { feudalism = 100 }
+		}
+		is_year = 1450
+	}
+	
+	immediate = {
+		set_global_flag = nhs_elysianism_spread_cd
+		every_province = {
+			limit = {
+				has_province_flag = nhs_elysianism
+			}
+			clr_province_flag = nhs_elysianism
+			set_province_flag = nhs_elysianism_old
+		}
+		every_province = {
+			limit = {
+				has_province_flag = nhs_elysianism_new
+			}
+			clr_province_flag = nhs_elysianism_new
+			set_province_flag = nhs_elysianism
+		}
+		every_province = {
+			limit = {
+				OR = {
+					any_neighbor_province = {
+						OR = {
+							has_province_flag = nhs_elysianism
+							feudalism = 100
+						}
+						continent = north_america
+					}
+					any_empty_neighbor_province = {
+						OR = {
+							has_province_flag = nhs_elysianism
+							feudalism = 100
+						}
+						continent = north_america
+					}
+				}
+				OR = {
+					NOT = {
+						AND = {
+							area = james_bay_area
+							OR = {
+								has_port = yes
+								province_id = 1002
+							}
+						}
+					}
+					AND = {
+						province_id = 1002
+						OR = {
+							2580 = {
+								OR = {
+									has_province_flag = nhs_elysianism
+									feudalism = 100
+								}
+							}
+							2581 = {
+								OR = {
+									has_province_flag = nhs_elysianism
+									feudalism = 100
+								}
+							}
+						}
+					}
+					OR = {
+						any_neighbor_province = {
+							OR = {
+								has_province_flag = nhs_elysianism
+								feudalism = 100
+							}
+							OR = {
+								area = james_bay_area
+								area = hudson_bay_area
+							}
+							continent = north_america
+						}
+						any_empty_neighbor_province = {
+							OR = {
+								has_province_flag = nhs_elysianism
+								feudalism = 100
+							}
+							OR = {
+								area = james_bay_area
+								area = hudson_bay_area
+							}
+							continent = north_america
+						}
+					}
+				}
+				NOT = { has_province_flag = nhs_elysianism }
+				NOT = { has_province_flag = nhs_elysianism_new }
+				NOT = { has_province_flag = nhs_elysianism_old }
+				continent = north_america
+			}
+			set_province_flag = nhs_elysianism_new
+			#if = { #testing only
+			#	limit = {
+			#		is_capital = no
+			#	}
+			#	cede_province = MSG
+			#}
+			change_variable = { which = YearVar value = -1 }
+			if = {
+				limit = {
+					check_variable = { which = YearVar value = 1 }
+				}
+				country_event = { id = nhs2_p.1 }
+			}
+		}
+	}
+	option = {
+		name = nhs2_bookmark.3.a
+	}
+}
+
+country_event = {
+	id = nhs2_p.2
+	title = nhs2_p.2.t
+	desc = nhs2_p.2.d
+	picture = COURT_eventPicture
+	
+	trigger = {
+		is_eligible_for_advancement_points = yes
+		NOT = { is_month = 1 }
+		OR = {
+			NOT = { has_country_flag = nhs_points_cd }
+			had_country_flag = { flag = nhs_points_cd days = 365 }
+		}
+		#OR = {
+		#	NOT = { has_country_flag = nhs_points_cd_start }
+		#	had_country_flag = { flag = nhs_points_cd_start days = 50 }
+		#}
+	}
+	
+	immediate = {
+		country_event = { id = nhs2_p.2 days = 366 }
+		clr_country_flag = nhs_points_cd
+		set_country_flag = nhs_points_cd
+		if = {
+			limit = {
+				any_known_country = {
+					is_considered_advanced = yes
+					alliance_with = ROOT
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_known_country = {
+					is_considered_advanced = yes
+					has_opinion = {
+						who = ROOT
+						value = 70
+					}
+				}	
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 1
+			}
+		}
+		if = {
+			limit = {
+				any_neighbor_country = {
+					is_considered_advanced = yes
+					OR = {
+						has_opinion = {
+							who = ROOT
+							value = 70
+						}
+						alliance_with = ROOT
+					}
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 3
+			}
+		}
+		else_if = {
+			limit = {
+				any_neighbor_country = {
+					is_considered_advanced = yes
+					has_opinion = {
+						who = ROOT
+						value = 0
+					}
+					NOT = { war_with = ROOT }
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 2
+			}
+		}
+		else_if = {
+			limit = {
+				any_neighbor_country = {
+					is_considered_advanced = yes
+					OR = {
+						NOT = {
+							has_opinion = {
+								who = ROOT
+								value = 0
+							}
+						}
+						war_with = ROOT
+					}
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_country = {
+					is_considered_advanced = yes
+					OR = {
+						any_active_trade_node = {
+							any_trade_node_member_province = {
+								owned_by = ROOT
+							}
+						}
+						home_trade_node = {
+							any_trade_node_member_province = {
+								owned_by = ROOT
+							}
+						}
+					}
+					has_opinion = {
+						who = ROOT
+						value = 0
+					}
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 1
+			}
+		}
+		if = {
+			limit = {
+				is_subject = yes
+				overlord = {
+					is_considered_advanced = yes
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 5
+			}
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					has_institution = feudalism
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 3
+			}
+		}
+		if = {
+			limit = {
+				has_any_disaster = yes
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = myCountingVariable
+						value = 2
+					}
+				}
+				subtract_variable = {
+					which = nhsAdvancementPoints
+					value = 2
+				}
+			}
+			else = {
+				set_variable = {
+					which = nhsAdvancementPoints
+					value = 0
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					prs_has_smallpox = yes
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = myCountingVariable
+						value = 1
+					}
+				}
+				subtract_variable = {
+					which = nhsAdvancementPoints
+					value = 1
+				}
+			}
+			else = {
+				set_variable = {
+					which = nhsAdvancementPoints
+					value = 0
+				}
+			}
+		}
+	}
+	option = {
+		name = nhs2_bookmark.3.a
+	}
+}
+
+country_event = {
+	id = nhs2_p.3
+	title = nhs2_p.2.t
+	desc = nhs2_p.2.d
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_eligible_for_advancement_points = yes
+	}
+	
+	immediate = {
+		#set_country_flag = nhs_points_cd_start
+		#country_event = { id = nhs2_p.2 days = 51 }
+		set_variable = {
+			which = nhsAdvancementPoints
+			value = 0
+		}
+		
+	}
+	option = {
+		name = nhs2_bookmark.3.a
+	}
+}

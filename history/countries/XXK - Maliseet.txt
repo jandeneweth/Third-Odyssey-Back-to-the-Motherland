@@ -1,5 +1,5 @@
 government = native
-add_government_reform = migratory_society
+add_government_reform = sedentary_society
 government_rank = 1
 primary_culture = maliseet
 religion = totemism

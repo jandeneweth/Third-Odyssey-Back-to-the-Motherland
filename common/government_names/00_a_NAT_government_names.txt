@@ -1,0 +1,28 @@
+####Vikings
+
+native_theocracy = 
+{
+	rank = 
+	{
+		1 = NAT_THEO
+		2 = NAT_THEO
+		3 = NAT_THEO
+	}
+	ruler_male =
+	{
+		1 = PROPHET
+		2 = PROPHET
+		3 = PROPHET
+	}
+	ruler_female = 
+	{
+		1 = PROPHETESS
+		2 = PROPHETESS
+		3 = PROPHETESS
+	}
+	
+	trigger = 
+	{
+		government = nhs_native_theocracy
+	}
+}
