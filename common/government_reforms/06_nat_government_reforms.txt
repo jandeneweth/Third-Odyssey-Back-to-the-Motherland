@@ -101,8 +101,15 @@ native_council_after = {
 	}
 }
 
+nhs_locked_reform = {
+	icon = "locked"
+	modifiers = {
+	}
+}
+
+##TIER 1
 migratory_society = {
-	icon = "shaman"
+	icon = "tier0"
 	allow_migration = yes
 	trigger = {
 		NOT = { num_of_cities = 2 }
@@ -113,6 +120,7 @@ migratory_society = {
 		land_maintenance_modifier = -0.25
 		diplomatic_upkeep = -1
 		global_institution_spread = -0.1
+		max_absolutism = -100
 	}
 	custom_attributes = {
 		locked_government_type = yes
@@ -122,14 +130,167 @@ migratory_society = {
 	}
 }
 
+##TIER 2
 sedentary_society = {
-	icon = "tribal_civil_society"
+	icon = "tier1"
 	legacy_equivalent = native_council2
 	modifiers = {
 		stability_cost_modifier = -0.20
 		land_maintenance_modifier = -0.25
+		max_absolutism = -50
 	}
 	custom_attributes = {
 		locked_government_type = yes
 	}
 }
+
+##TIER 3
+nhs_reformed_native_council = {
+	republican_name = yes
+	icon = "tier2_reformed"
+	modifiers = {
+		max_states = 3
+		stability_cost_modifier = -0.10
+		land_maintenance_modifier = -0.10
+		land_forcelimit_modifier = 0.10
+		global_autonomy = -0.1
+		max_absolutism = -30
+	}
+}
+
+nhs_early_native_republic = {
+	royal_marriage = yes
+	republican_name = yes
+	icon = "tier2_republic"
+	modifiers = {
+		max_states = 3
+		stability_cost_modifier = -0.10
+		land_maintenance_modifier = -0.10
+		land_forcelimit_modifier = 0.10
+		global_autonomy = -0.1
+		max_absolutism = -30
+	}
+}
+
+nhs_native_heredetary = {
+	royal_marriage = yes
+	republican_name = yes
+	icon = "tier2_hereditary"
+	modifiers = {
+		max_states = 3
+		stability_cost_modifier = -0.10
+		land_maintenance_modifier = -0.10
+		land_forcelimit_modifier = 0.10
+		global_autonomy = -0.1
+		max_absolutism = -30
+	}
+}
+
+nhs_native_horde = {
+	valid_for_new_country = no
+	allow_convert = no
+	royal_marriage = yes
+	republican_name = yes
+	nomad = yes
+	icon = "tier1"
+	modifiers = {
+		global_manpower_modifier = 0.2
+		land_forcelimit_modifier = 0.2
+		loot_amount = 0.50
+		global_institution_spread = -0.15
+		reinforce_cost_modifier = -0.5
+		cav_to_inf_ratio = 0.25
+		movement_speed = 0.2
+		years_of_nationalism = -5
+	}
+}
+
+nhs_native_early_theocracy = {
+	has_devotion = yes
+	religion = yes
+	heir = yes
+	icon = "tier2_theocracy"
+	modifiers = {
+		max_states = 3
+		stability_cost_modifier = -0.10
+		land_maintenance_modifier = -0.10
+		land_forcelimit_modifier = 0.10
+		global_autonomy = -0.1
+		max_absolutism = -30
+	}
+}
+
+##TIER 4
+nhs_native_modern_council = {
+	republican_name = yes
+	icon = "tier3_modern"
+	modifiers = {
+		max_states = 3
+		stability_cost_modifier = -0.10
+		land_maintenance_modifier = -0.10
+		land_forcelimit_modifier = 0.10
+		global_autonomy = -0.1
+		max_absolutism = -30
+	}
+}
+
+nhs_native_democracy = {
+	republican_name = yes
+	icon = "tier3_democracy"
+	modifiers = {
+		max_states = 3
+		stability_cost_modifier = -0.10
+		land_maintenance_modifier = -0.10
+		land_forcelimit_modifier = 0.10
+		global_autonomy = -0.1
+		max_absolutism = -30
+	}
+}
+
+nhs_native_republic = {
+	royal_marriage = yes
+	republican_name = yes
+	icon = "tier3_republic"
+	modifiers = {
+		max_states = 3
+		stability_cost_modifier = -0.10
+		land_maintenance_modifier = -0.10
+		land_forcelimit_modifier = 0.10
+		global_autonomy = -0.1
+		max_absolutism = -30
+	}
+}
+
+nhs_native_monarchy = {
+	royal_marriage = yes
+	republican_name = yes
+	icon = "tier3_monarchy"
+	modifiers = {
+		max_states = 3
+		stability_cost_modifier = -0.10
+		land_maintenance_modifier = -0.10
+		land_forcelimit_modifier = 0.10
+		global_autonomy = -0.1
+		max_absolutism = -30
+	}
+}
+
+nhs_native_theocracy = {
+	has_devotion = yes
+	religion = yes
+	heir = yes
+	icon = "tier3_theocracy"
+	modifiers = {
+		max_states = 3
+		stability_cost_modifier = -0.10
+		land_maintenance_modifier = -0.10
+		land_forcelimit_modifier = 0.10
+		global_autonomy = -0.1
+		max_absolutism = -30
+	}
+}
+
+
+
+
+

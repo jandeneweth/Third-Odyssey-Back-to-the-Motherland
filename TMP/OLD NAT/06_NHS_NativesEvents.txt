@@ -16,7 +16,6 @@ country_event = {
 			technology_group = south_american
 			technology_group = andean
 		}
-		NOT = { has_country_flag = nhs_techgroupchange1 }
 		any_known_country = {
 			OR = {
 				technology_group = exiled_greek
@@ -69,6 +68,7 @@ country_event = {
 			ROOT = { capital_scope = { has_discovered = PREV } }
 		}
 		is_at_war = no
+		NOT = { has_country_flag = nhs_techgroupchange1 }
 	}
 
 	mean_time_to_happen = {
@@ -84,25 +84,7 @@ country_event = {
 	}
 }
 
-# Strange new people -alternate: Sunrise Invasion
-country_event = {
-	id = nhs2_nativesevents.7
-	title = nhs2_nativesevents.7.t
-	desc = nhs2_nativesevents.7.d
-	picture = COURT_eventPicture
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		set_country_flag = nhs_techgroupchange1
-	}
-
-	option = {
-		name = "nhs2_nativesevents.1.a"
-	}
-}
-
-# Change of has_reform following getting a new tech group
+# Change of government following getting a new tech group
 country_event = {
 	id = nhs2_nativesevents.2
 	title = nhs2_nativesevents.2.t
@@ -127,7 +109,7 @@ country_event = {
 			}
 			has_institution = feudalism
 		}
-		is_native_council = yes
+		is_native_council_of_fed = yes
 		NOT = { has_country_modifier = nhs2_n_r_c }
 	}
 
@@ -224,15 +206,14 @@ country_event = {
 			limit = {
 				is_native_council = yes
 			}
-			nhs_change_government = { GOV = republic }
-			add_government_reform = native_council_after
+			change_government = native_council_after
 		}
-		#if = {
-		#	limit = {
-		#		primitives = yes
-		#	}
-		#	set_primitive = no
-		#}
+		if = {
+			limit = {
+				primitives = yes
+			}
+			set_primitive = no
+		}
 		if = {
 			limit = {
 				NOT = {
@@ -287,46 +268,46 @@ country_event = {
 }
 
 # Unprimitive
-#country_event = {
-#	id = nhs2_nativesevents.3
-#	title = nhs2_nativesevents.2.t
-#	desc = nhs2_nativesevents.2.d
-#	picture = COURT_eventPicture
-#	
-#	hidden = yes
-#	is_triggered_only = yes
-#	trigger = {
-#		NOT = { tag = ROOT } #Disabled
-#		OR = {
-#			technology_group = north_american
-#			technology_group = hellenised_american
-#		}
-#		is_at_war = no
-#		is_year = 1465
-#		primitives = yes
-#		is_native_council_of_fed = yes
-#		
-#	}
-#	
-#	immediate = {
-#		if = {
-#			limit = {
-#				primitives = yes
-#			}
-#			set_primitive = no
-#		}
-#		if = {
-#			limit = {
-#				is_native_council = yes
-#			}
-#			add_government_reform = native_council_after
-#		}
-#	}
-#
-#	option = {
-#		name = "nhs2_nativesevents.2.a"	
-#	}
-#}
+country_event = {
+	id = nhs2_nativesevents.3
+	title = nhs2_nativesevents.2.t
+	desc = nhs2_nativesevents.2.d
+	picture = COURT_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = { tag = ROOT } #Disabled
+		OR = {
+			technology_group = north_american
+			technology_group = hellenised_american
+		}
+		is_at_war = no
+		is_year = 1465
+		primitives = yes
+		is_native_council_of_fed = yes
+		
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				primitives = yes
+			}
+			set_primitive = no
+		}
+		if = {
+			limit = {
+				is_native_council = yes
+			}
+			change_government = native_council_after
+		}
+	}
+
+	option = {
+		name = "nhs2_nativesevents.2.a"	
+	}
+}
 
 #Informative event
 country_event = {
@@ -376,105 +357,5 @@ country_event = {
 
 	option = {
 		name = nhs2_nativesevents.4.a
-	}
-}
-
-#native fed election
-country_event = {
-	id = nhs2_nativesevents.5
-	title = nhs2_nativesevents.5.t
-	desc = nhs2_nativesevents.5.d
-	picture = ELECTION_REPUBLICAN_eventPicture
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		has_reform = native_council_after
-		has_dlc = "Res Publica"
-	}
-
-	option = {
-		name = nhs2_nativesevents.5.a
-		if = {
-			limit = { has_active_policy = mandatory_service }
-			define_ruler = {
-				min_age = 40
-				mil = 1
-				adm = 1
-				dip = 1
-				random_gender = yes # Allows random gender for republics
-			}
-		}
-		else = {
-			define_ruler = {
-				min_age = 40
-				mil = 1
-				adm = 1
-				dip = 1
-			}
-		}
-		change_statists_vs_orangists = -0.33
-		#if = {
-		#	limit = {
-		#		has_country_flag = nat_chief_in_power
-		#	}
-		#	clr_country_flag = nat_chief_in_power
-		#}
-	}
-	
-	option = {
-		name = nhs2_nativesevents.5.b
-		add_republican_tradition = -6
-		change_statists_vs_orangists = 0.33
-		#if = {
-		#	limit = {
-		#		NOT = { has_country_flag = nat_chief_in_power }
-		#	}
-		#	set_country_flag = nat_chief_in_power
-		#}
-	}
-}
-
-#native fed election-death
-country_event = {
-	id = nhs2_nativesevents.6
-	title = nhs2_nativesevents.6.t
-	desc = nhs2_nativesevents.6.d
-	picture = ELECTION_REPUBLICAN_eventPicture
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		has_reform = native_council_after
-		has_dlc = "Res Publica"
-	}
-
-	option = {
-		name = nhs2_nativesevents.6.a
-		if = {
-			limit = { has_active_policy = mandatory_service }
-			define_ruler = {
-				min_age = 40
-				mil = 1
-				adm = 1
-				dip = 1
-				random_gender = yes # Allows random gender for republics
-			}
-		}
-		else = {
-			define_ruler = {
-				min_age = 40
-				mil = 1
-				adm = 1
-				dip = 1
-			}
-		}
-		change_statists_vs_orangists = -0.10
-		#if = {
-		#	limit = {
-		#		has_country_flag = nat_chief_in_power
-		#	}
-		#	clr_country_flag = nat_chief_in_power
-		#}
 	}
 }
