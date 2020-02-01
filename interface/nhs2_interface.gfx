@@ -874,4 +874,66 @@ spriteTypes = {
 		texturefile = "gfx//interface//trade_route_map.tga"
 		loadType = "INGAME"
 	}
+	
+	### NATIVE REFORMS
+	spriteType = {
+		name = "government_reform_tier0"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier0.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier1"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier1.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier2_hereditary"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier2_hereditary.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier2_reformed"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier2_reformed.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier2_republic"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier2_republic.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier2_theocracy"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier2_theocracy.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier3_democracy"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier3_democracy.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier3_modern"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier3_modern.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier3_monarchy"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier3_monarchy.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier3_republic"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier3_republic.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier3_theocracy"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier3_theocracy.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_locked"
+		texturefile = "gfx//interface//government_reform_icons//natives//locked.dds"
+	}
+	###
 }

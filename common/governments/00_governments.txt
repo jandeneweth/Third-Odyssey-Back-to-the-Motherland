@@ -665,6 +665,16 @@ native = {
 			reforms = {
 				migratory_society
 				sedentary_society
+				nhs_native_modern_council
+				nhs_locked_reform
+				nhs_native_early_theocracy
+				nhs_reformed_native_council
+				nhs_early_native_republic
+				nhs_native_heredetary
+				nhs_native_theocracy
+				nhs_native_democracy
+				nhs_native_republic
+				nhs_native_monarchy
 			}
 		}
 	}

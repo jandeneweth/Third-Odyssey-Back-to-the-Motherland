@@ -300,3 +300,237 @@ country_event = {
 		name = nhs2_bookmark.3.a
 	}
 }
+
+country_event = {
+	id = nhs2_p.2
+	title = nhs2_p.2.t
+	desc = nhs2_p.2.d
+	picture = COURT_eventPicture
+	
+	trigger = {
+		is_eligible_for_advancement_points = yes
+		NOT = { is_month = 1 }
+		OR = {
+			NOT = { has_country_flag = nhs_points_cd }
+			had_country_flag = { flag = nhs_points_cd days = 365 }
+		}
+		#OR = {
+		#	NOT = { has_country_flag = nhs_points_cd_start }
+		#	had_country_flag = { flag = nhs_points_cd_start days = 50 }
+		#}
+	}
+	
+	immediate = {
+		country_event = { id = nhs2_p.2 days = 366 }
+		clr_country_flag = nhs_points_cd
+		set_country_flag = nhs_points_cd
+		if = {
+			limit = {
+				any_known_country = {
+					is_considered_advanced = yes
+					alliance_with = ROOT
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_known_country = {
+					is_considered_advanced = yes
+					has_opinion = {
+						who = ROOT
+						value = 70
+					}
+				}	
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 1
+			}
+		}
+		if = {
+			limit = {
+				any_neighbor_country = {
+					is_considered_advanced = yes
+					OR = {
+						has_opinion = {
+							who = ROOT
+							value = 70
+						}
+						alliance_with = ROOT
+					}
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 3
+			}
+		}
+		else_if = {
+			limit = {
+				any_neighbor_country = {
+					is_considered_advanced = yes
+					has_opinion = {
+						who = ROOT
+						value = 0
+					}
+					NOT = { war_with = ROOT }
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 2
+			}
+		}
+		else_if = {
+			limit = {
+				any_neighbor_country = {
+					is_considered_advanced = yes
+					OR = {
+						NOT = {
+							has_opinion = {
+								who = ROOT
+								value = 0
+							}
+						}
+						war_with = ROOT
+					}
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 1
+			}
+		}
+		else_if = {
+			limit = {
+				any_country = {
+					is_considered_advanced = yes
+					OR = {
+						any_active_trade_node = {
+							any_trade_node_member_province = {
+								owned_by = ROOT
+							}
+						}
+						home_trade_node = {
+							any_trade_node_member_province = {
+								owned_by = ROOT
+							}
+						}
+					}
+					has_opinion = {
+						who = ROOT
+						value = 0
+					}
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 1
+			}
+		}
+		if = {
+			limit = {
+				is_subject = yes
+				overlord = {
+					is_considered_advanced = yes
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 5
+			}
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					has_institution = feudalism
+				}
+			}
+			change_variable = {
+				which = nhsAdvancementPoints
+				value = 3
+			}
+		}
+		if = {
+			limit = {
+				has_any_disaster = yes
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = myCountingVariable
+						value = 2
+					}
+				}
+				subtract_variable = {
+					which = nhsAdvancementPoints
+					value = 2
+				}
+			}
+			else = {
+				set_variable = {
+					which = nhsAdvancementPoints
+					value = 0
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					prs_has_smallpox = yes
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = myCountingVariable
+						value = 1
+					}
+				}
+				subtract_variable = {
+					which = nhsAdvancementPoints
+					value = 1
+				}
+			}
+			else = {
+				set_variable = {
+					which = nhsAdvancementPoints
+					value = 0
+				}
+			}
+		}
+	}
+	option = {
+		name = nhs2_bookmark.3.a
+	}
+}
+
+country_event = {
+	id = nhs2_p.3
+	title = nhs2_p.2.t
+	desc = nhs2_p.2.d
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_eligible_for_advancement_points = yes
+	}
+	
+	immediate = {
+		#set_country_flag = nhs_points_cd_start
+		#country_event = { id = nhs2_p.2 days = 51 }
+		set_variable = {
+			which = nhsAdvancementPoints
+			value = 0
+		}
+		
+	}
+	option = {
+		name = nhs2_bookmark.3.a
+	}
+}
