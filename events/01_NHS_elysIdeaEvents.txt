@@ -1148,33 +1148,33 @@ country_event = {
 ### Understandings with Natives
 
 # Integrate natives, more tax and manpower
-province_event = {
-	id = nhs_elysIdeaEvents.30
-	title = nhs_elysIdeaEvents.30.t
-	desc = nhs_elysIdeaEvents.30.d
-	picture = NATIVES_eventPicture
+# province_event = {
+	# id = nhs_elysIdeaEvents.30
+	# title = nhs_elysIdeaEvents.30.t
+	# desc = nhs_elysIdeaEvents.30.d
+	# picture = NATIVES_eventPicture
 
-    trigger = {
-		owner = { has_idea = understandings_with_natives }
-		is_colony = yes
-		colonysize = 400
-		NOT = { nhs_homelands = yes }
-		NOT = { has_province_flag = nhs_integrate_natives_colony }
-	}
+    # trigger = {
+		# owner = { has_idea = understandings_with_natives }
+		# is_colony = yes
+		# colonysize = 400
+		# NOT = { nhs_homelands = yes }
+		# NOT = { has_province_flag = nhs_integrate_natives_colony }
+	# }
 	
-	is_mtth_scaled_to_size = 1
-	mean_time_to_happen = {
-		months = 12
-	}
+	# is_mtth_scaled_to_size = 1
+	# mean_time_to_happen = {
+		# months = 12
+	# }
 
-	option = {
-		name = "nhs_elysIdeaEvents.30.a"
-		set_province_flag = nhs_integrate_natives_colony
-		add_base_tax = 1
-		add_base_production = 1
-		add_base_manpower = 1
-	}
-}
+	# option = {
+		# name = "nhs_elysIdeaEvents.30.a"
+		# set_province_flag = nhs_integrate_natives_colony
+		# add_base_tax = 1
+		# add_base_production = 1
+		# add_base_manpower = 1
+	# }
+# }
 
 
 ### Elysian Tradition 

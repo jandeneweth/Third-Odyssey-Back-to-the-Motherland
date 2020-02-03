@@ -1,0 +1,33 @@
+# Credit to M&T TEAM for idea
+# Author: Phlopsi
+nat_pulse_system = {
+	potential = {
+		has_country_flag = nat_current_native_controller
+		# ai = yes
+	}
+	
+	can_start = {
+		always = yes
+	}
+	
+	can_stop = {
+		always = no
+	}
+	
+	progress = {
+		modifier = {
+			factor = 100
+			always = yes
+		}
+	}
+	
+	can_end = {
+		always = no
+	}
+	
+	on_start = nat_native_aggression.2
+	
+	on_monthly = {
+		log = "MONTHLY DISASTER"
+	}
+}
