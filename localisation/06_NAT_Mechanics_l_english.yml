@@ -15,3 +15,10 @@
   nhs_advancement_points_plague:0 "Ongoing plague: §R-1§W"
   nhsAdvancementPoints:0 "Advancement Points"
   
+  nat_native_aggression.5.t:0 "Current Aggression"
+  nat_native_aggression.5.d:0 "GLOBAL: §R[REB.nhs_global_aggression.GetValue]§!\nIROQUOIS: §G[REB.nhs_iro_aggression.GetValue]§!\nCAHOKIAN: §G[REB.nhs_cah_aggression.GetValue]§!\nNORTHERN: §G[REB.nhs_north_aggression.GetValue]§!\nWESTERN: §G[REB.nhs_west_aggression.GetValue]§!\nSOUTHERN: §G[REB.nhs_south_aggression.GetValue]§!"
+  nat_native_aggression.5.a:0 "OK"
+  nhs_maintenance_event.t:0 "Hidden Event"
+  nhs_maintenance_event.d:0 "§RThis event was supposed to be hidden (most likely used to make some calculations)§!\nThis sometimes happens when loading a save (blame Paradox), but if it just happened out of the blue please post a bug report!"
+  nhs_maintenance_event.a:0 "OK"
+  

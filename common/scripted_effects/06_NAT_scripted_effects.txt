@@ -1,0 +1,490 @@
+#on_start
+nat_initialize_native_aggression = {
+	if = {
+		limit = {
+			REB = { NOT = { has_global_flag = nat_set_aggression } }
+		}
+		REB = {
+			set_global_flag = nat_set_aggression
+			# set_global_flag = nat_last_maintenance_9
+			set_variable = { which = nhs_global_aggression value = 0 }
+			set_variable = { which = nhs_cah_aggression value = 0 }
+			set_variable = { which = nhs_iro_aggression value = 0 }
+			set_variable = { which = nhs_north_aggression value = 0 }
+			set_variable = { which = nhs_west_aggression value = 0 }
+			set_variable = { which = nhs_south_aggression value = 0 }
+			# country_event = { id = nat_native_aggression.1 }
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = nat_current_native_controller
+			ai = no
+		}
+		clr_country_flag = nat_current_native_controller
+	}
+	if = {
+		limit = {
+			NOT = {
+				any_country = {
+					has_country_flag = nat_current_native_controller
+					ai = yes
+					exists = yes
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				ai = yes
+				exists = yes
+			}
+			set_country_flag = nat_current_native_controller
+		}
+	}
+	else_if = {
+		limit = {
+			calc_true_if = {
+				all_country = {
+					has_country_flag = nat_current_native_controller
+					ai = yes
+					exists = yes
+				}
+				amount = 2
+			}
+		}
+		every_country = {
+			limit = {
+				has_country_flag = nat_current_native_controller
+				ai = yes
+				exists = yes	
+			}
+			clr_country_flag = nat_current_native_controller
+		}
+		random_country = {
+			limit = {
+				ai = yes
+				exists = yes
+			}
+			set_country_flag = nat_current_native_controller
+		}
+	}
+}
+
+nat_change_aggression_controller = {
+	FROM = {
+		clr_country_flag = nat_current_native_controller
+		random_country = {
+			limit = {
+				ai = yes
+				exists = yes
+			}
+			set_country_flag = nat_current_native_controller
+		}
+	}
+}
+
+nat_add_advancement = {
+	change_government_reform_progress = $VAL$
+	# change_variable = {
+		# which = nhsAdvancementPoints
+		# value = $VAL$
+	# }
+}
+
+nat_maintenance = {
+	every_country = {
+		limit = {
+			government = native
+		}
+		if = {
+			limit = {
+				any_known_country = {
+					is_considered_advanced = yes
+					OR = {
+						alliance_with = ROOT
+						has_opinion = {
+							who = ROOT
+							value = 70
+						}
+					}
+				}
+			}
+			nat_add_advancement = { VAL = 1 }
+		}
+		if = {
+			limit = {
+				any_neighbor_country = {
+					is_considered_advanced = yes
+					OR = {
+						has_opinion = {
+							who = ROOT
+							value = 70
+						}
+						alliance_with = ROOT
+					}
+				}
+			}
+			nat_add_advancement = { VAL = 3 }
+		}
+		else_if = {
+			limit = {
+				any_neighbor_country = {
+					is_considered_advanced = yes
+					has_opinion = {
+						who = ROOT
+						value = 0
+					}
+					NOT = { war_with = ROOT }
+				}
+			}
+			nat_add_advancement = { VAL = 2 }
+		}
+		else_if = {
+			limit = {
+				any_neighbor_country = {
+					is_considered_advanced = yes
+					OR = {
+						NOT = {
+							has_opinion = {
+								who = ROOT
+								value = 0
+							}
+						}
+						war_with = ROOT
+					}
+				}
+			}
+			nat_add_advancement = { VAL = 1 }
+		}
+		else_if = {
+			limit = {
+				any_country = {
+					is_considered_advanced = yes
+					OR = {
+						any_active_trade_node = {
+							any_trade_node_member_province = {
+								owned_by = ROOT
+							}
+						}
+						home_trade_node = {
+							any_trade_node_member_province = {
+								owned_by = ROOT
+							}
+						}
+					}
+					has_opinion = {
+						who = ROOT
+						value = 0
+					}
+				}
+			}
+			nat_add_advancement = { VAL = 1 }
+		}
+		if = {
+			limit = {
+				is_subject = yes
+				overlord = {
+					is_considered_advanced = yes
+				}
+			}
+			nat_add_advancement = { VAL = 7 }
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					has_institution = feudalism
+				}
+			}
+			nat_add_advancement = { VAL = 3 }
+		}
+		if = {
+			limit = {
+				has_any_disaster = yes
+			}
+			nat_add_advancement = { VAL = -2 }
+			# if = {
+				# limit = {
+					# check_variable = {
+						# which = myCountingVariable
+						# value = 2
+					# }
+				# }
+				# nat_add_advancement = { VAL = -2 }
+			# }
+			# else = {
+				# set_variable = {
+					# which = nhsAdvancementPoints
+					# value = 0
+				# }
+			# }
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					prs_has_smallpox = yes
+				}
+			}
+			nat_add_advancement = { VAL = -1 }
+			# if = {
+				# limit = {
+					# check_variable = {
+						# which = myCountingVariable
+						# value = 1
+					# }
+				# }
+				# subtract_variable = {
+					# which = nhsAdvancementPoints
+					# value = 1
+				# }
+			# }
+			# else = {
+				# set_variable = {
+					# which = nhsAdvancementPoints
+					# value = 0
+				# }
+			# }
+		}
+	}
+}
+
+# nat_maintenance = {
+	# log = "MAINT EVENT CHECK"
+	# REB = {
+		# if = {
+			# limit = {
+				# has_global_flag = nat_last_maintenance_11
+				# is_month = 0
+				# NOT = { is_month = 1 }
+			# }
+			# log = "MAINT EVENT 0"
+			# clr_global_flag = nat_last_maintenance_11
+			# set_global_flag = nat_last_maintenance_0
+			# nat_trigger_event_in_x_days = yes
+		# } 
+		# else_if = {
+			# limit = {
+				# has_global_flag = nat_last_maintenance_0
+				# is_month = 1
+				# NOT = { is_month = 2 }
+			# }
+			# log = "MAINT EVENT 1"
+			# clr_global_flag = nat_last_maintenance_0
+			# set_global_flag = nat_last_maintenance_1
+			# nat_trigger_event_in_x_days = yes
+		# }
+		# else_if = {
+			# limit = {
+				# has_global_flag = nat_last_maintenance_1
+				# is_month = 2
+				# NOT = { is_month = 3 }
+			# }
+			# log = "MAINT EVENT 2"
+			# clr_global_flag = nat_last_maintenance_1
+			# set_global_flag = nat_last_maintenance_2
+			# nat_trigger_event_in_x_days = yes
+		# }
+		# else_if = {
+			# limit = {
+				# has_global_flag = nat_last_maintenance_2
+				# is_month = 3
+				# NOT = { is_month = 4 }
+			# }
+			# log = "MAINT EVENT 3"
+			# clr_global_flag = nat_last_maintenance_2
+			# set_global_flag = nat_last_maintenance_3
+			# nat_trigger_event_in_x_days = yes
+		# }
+		# else_if = {
+			# limit = {
+				# has_global_flag = nat_last_maintenance_3
+				# is_month = 4
+				# NOT = { is_month = 5 }
+			# }
+			# log = "MAINT EVENT 4"
+			# clr_global_flag = nat_last_maintenance_3
+			# set_global_flag = nat_last_maintenance_4
+			# nat_trigger_event_in_x_days = yes
+		# }
+		# else_if = {
+			# limit = {
+				# has_global_flag = nat_last_maintenance_4
+				# is_month = 5
+				# NOT = { is_month = 6 }
+			# }
+			# log = "MAINT EVENT 5"
+			# clr_global_flag = nat_last_maintenance_4
+			# set_global_flag = nat_last_maintenance_5
+			# nat_trigger_event_in_x_days = yes
+		# }
+		# else_if = {
+			# limit = {
+				# has_global_flag = nat_last_maintenance_5
+				# is_month = 6
+				# NOT = { is_month = 7 }
+			# }
+			# log = "MAINT EVENT 6"
+			# clr_global_flag = nat_last_maintenance_5
+			# set_global_flag = nat_last_maintenance_6
+			# nat_trigger_event_in_x_days = yes
+		# }
+		# else_if = {
+			# limit = {
+				# has_global_flag = nat_last_maintenance_6
+				# is_month = 7
+				# NOT = { is_month = 8 }
+			# }
+			# log = "MAINT EVENT 7"
+			# clr_global_flag = nat_last_maintenance_6
+			# set_global_flag = nat_last_maintenance_7
+			# nat_trigger_event_in_x_days = yes
+		# }
+		# else_if = {
+			# limit = {
+				# has_global_flag = nat_last_maintenance_7
+				# is_month = 8
+				# NOT = { is_month = 9 }
+			# }
+			# log = "MAINT EVENT 8"
+			# clr_global_flag = nat_last_maintenance_7
+			# set_global_flag = nat_last_maintenance_8
+			# nat_trigger_event_in_x_days = yes
+		# }
+		# else_if = {
+			# limit = {
+				# has_global_flag = nat_last_maintenance_8
+				# is_month = 9
+				# NOT = { is_month = 10 }
+			# }
+			# log = "MAINT EVENT 9"
+			# clr_global_flag = nat_last_maintenance_8
+			# set_global_flag = nat_last_maintenance_9
+			# nat_trigger_event_in_x_days = yes
+		# }
+		# else_if = {
+			# limit = {
+				# has_global_flag = nat_last_maintenance_9
+				# is_month = 10
+				# NOT = { is_month = 11 }
+			# }
+			# log = "MAINT EVENT 10"
+			# clr_global_flag = nat_last_maintenance_9
+			# set_global_flag = nat_last_maintenance_10
+			# nat_trigger_event_in_x_days = yes
+		# }
+		# else_if = {
+			# limit = {
+				# has_global_flag = nat_last_maintenance_10
+				# is_month = 11
+			# }
+			# log = "MAINT EVENT 11"
+			# clr_global_flag = nat_last_maintenance_10
+			# set_global_flag = nat_last_maintenance_11
+			# nat_trigger_event_in_x_days = yes
+		# }
+	# }
+# }
+
+# nat_trigger_event_on_start_of_next_30_day_month = {
+	# trigger_switch = {
+		# on_trigger = <trigger>
+		# <trigger value> = { <effect> }
+		# <trigger value> = { <effect> }
+	# }
+
+# }
+
+# nat_trigger_event_on_start_of_next_month = {
+	# if = {
+		# limit = {
+			# OR = {
+				# is_month = 0
+				# is_month = 2
+				# is_month = 4
+				# is_month = 6
+				# is_month = 7
+				# is_month = 9
+				# is_month = 11
+			# }
+		# }
+	# }
+	# else = {
+		
+	# }
+# }
+
+
+#on_province_owner_change
+nat_calculate_aggression_on_province_conquered = {
+	if = {
+		limit = {
+			OR = {
+				superregion = south_elysia_superregion
+				superregion = west_elysia_superregion
+				superregion = north_elysia_superregion
+				superregion = northeast_elysia_superregion
+				superregion = southeast_elysia_superregion
+			}
+			FROM = {
+				nhs_north_american_native_nation = yes
+			}
+			nhs_foreign_nation = yes
+			NOT = { is_core = ROOT }
+		}
+		owner = {
+			change_variable = { which = nhs_own_aggression value = 2 }
+		}
+		#IROQUOIS
+		if = {
+			limit = {
+				superregion = northeast_elysia_superregion
+			}
+			REB = {
+				change_variable = { which = nhs_global_aggression value = 2 }
+				change_variable = { which = nhs_iro_aggression value = 4 }
+				change_variable = { which = nhs_cah_aggression value = 2 }
+				change_variable = { which = nhs_north_aggression value = 2 }
+			}
+		}
+		#CAHOKIAN
+		if = {
+			limit = {
+				superregion = southeast_elysia_superregion
+			}
+			REB = {
+				change_variable = { which = nhs_global_aggression value = 2 }
+				change_variable = { which = nhs_cah_aggression value = 4 }
+				change_variable = { which = nhs_iro_aggression value = 2 }
+			}
+		}
+		#NORTHERN
+		if = {
+			limit = {
+				superregion = north_elysia_superregion
+			}
+			REB = {
+				change_variable = { which = nhs_global_aggression value = 2 }
+				change_variable = { which = nhs_north_aggression value = 4 }
+			}
+		}
+		#WESTERN
+		if = {
+			limit = {
+				superregion = west_elysia_superregion
+			}
+			REB = {
+				change_variable = { which = nhs_global_aggression value = 2 }
+				change_variable = { which = nhs_west_aggression value = 4 }
+			}
+		}
+		#SOUTHERN
+		if = {
+			limit = {
+				superregion = south_elysia_superregion
+			}
+			REB = {
+				change_variable = { which = nhs_global_aggression value = 2 }
+				change_variable = { which = nhs_south_aggression value = 4 }
+			}
+		}
+	}
+}

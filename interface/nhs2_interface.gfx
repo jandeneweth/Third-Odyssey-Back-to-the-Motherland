@@ -936,4 +936,11 @@ spriteTypes = {
 		texturefile = "gfx//interface//government_reform_icons//natives//locked.dds"
 	}
 	###
+	
+	spriteType = {
+		name = "GFX_disaster_nat_pulse_system"
+		texturefile = "gfx//interface//disasters//nat_pulse_system.dds"
+		noOfFrames = 3
+		loadType = "INGAME"
+	}
 }
