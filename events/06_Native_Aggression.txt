@@ -37,28 +37,6 @@ country_event = {
 	# }
 # }
 
-## Monthly maintenance event, on_start of pulse_system
-country_event = {
-	id = nat_native_aggression.2
-	title = nhs_maintenance_event.t
-	desc = nhs_maintenance_event.d
-	picture = cahokia_eventPicture
-	
-	is_triggered_only = yes
-	hidden = yes
-	
-	immediate = {
-		# change_variable = { which = nhs_cah_aggression value = 10 }
-		# country_event = { id = nat_native_aggression.1 days = 10 }
-		# log = "NHS: MAINTENANCE EVENT"
-		log = "MONTHLY DISASTER"
-	}
-	
-	option = {
-		name = "nhs_maintenance_event.a"
-	}
-}
-
 ## On game start, moved to scripted effect
 # country_event = {
 	# id = nat_native_aggression.1

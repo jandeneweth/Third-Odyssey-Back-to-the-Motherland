@@ -1,0 +1,31 @@
+﻿l_english:
+ council:0 "Council"
+ chief:0 "Chief"
+ chief_MECHANIC_TOOLTIP:0 "When Chief is in power, our current ruler will continue to rule until his/her death."
+ council_MECHANIC_TOOLTIP:0 "When Council is in power, our current ruler will continue to rule until his/her death."
+ 
+ native_society:0 "Government"
+ native_writing:0 "Literacy"
+ native_tier1:0 "Tier I"
+ nat_reform_tier1:0 "Tier I"
+ nat_reform_tier1_cultural_values:0 "Tier I: §YCultural Values§!"
+ native_tier2:0 "Tier II"
+ native_tier3:0 "Tier III"
+ native_tier4:0 "Tier IV"
+ native_tier5:0 "Tier V"
+ 
+ migratory_society:0 "Migratory Society"
+ sedentary_society:0 "Sedentary Society"
+ 
+ nat_reform_no_writing:0 "Oral Traditions"
+ nat_reform_native_writing:0 "Our own Writing System"
+ nat_reform_elysian_writing:0 "Adapt Elysian Alphabet"
+ nat_reform_norse_writing:0 "Adapt Norse Runes"
+ 
+ 
+ 
+ nhs_native_theocracy:0 "Native Theocracy"
+ NAT_THEO:0 "Native Theocracy"
+ PROPHET:0 "Prophet"
+ nhs_native_theocracy_desc:0 "TO DO"
+ 

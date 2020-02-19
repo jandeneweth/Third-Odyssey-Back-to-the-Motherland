@@ -1,0 +1,146 @@
+spriteTypes = {
+	### NATIVE REFORMS
+	spriteType = {
+		name = "government_reform_tier0"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier0.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier1"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier1.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier2_hereditary"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier2_hereditary.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier2_reformed"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier2_reformed.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier2_republic"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier2_republic.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier2_theocracy"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier2_theocracy.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier3_democracy"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier3_democracy.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier3_modern"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier3_modern.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier3_monarchy"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier3_monarchy.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier3_republic"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier3_republic.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_tier3_theocracy"
+		texturefile = "gfx//interface//government_reform_icons//natives//tier3_theocracy.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_locked"
+		texturefile = "gfx//interface//government_reform_icons//natives//locked.dds"
+	}
+	
+	## WRITING
+	spriteType = {
+		name = "government_reform_oral_tradition"
+		texturefile = "gfx//interface//government_reform_icons//natives//oral_tradition.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_native_lodge"
+		texturefile = "gfx//interface//government_reform_icons//natives//native_lodge.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_writing_elysian"
+		texturefile = "gfx//interface//government_reform_icons//natives//writing_elysian.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_writing_native"
+		texturefile = "gfx//interface//government_reform_icons//natives//writing_native.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_writing_norse"
+		texturefile = "gfx//interface//government_reform_icons//natives//writing_norse.dds"
+	}
+	## TIERS
+	spriteType = {
+		name = "government_reform_reform_tier1"
+		texturefile = "gfx//interface//government_reform_icons//natives//reform_tier1.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_reform_tier2"
+		texturefile = "gfx//interface//government_reform_icons//natives//reform_tier2.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_reform_tier3"
+		texturefile = "gfx//interface//government_reform_icons//natives//reform_tier3.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_reform_tier4"
+		texturefile = "gfx//interface//government_reform_icons//natives//reform_tier4.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_reform_tier5"
+		texturefile = "gfx//interface//government_reform_icons//natives//reform_tier5.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_reform_tier1_closed"
+		texturefile = "gfx//interface//government_reform_icons//natives//reform_tier1_closed.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_reform_tier2_closed"
+		texturefile = "gfx//interface//government_reform_icons//natives//reform_tier2_closed.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_reform_tier3_closed"
+		texturefile = "gfx//interface//government_reform_icons//natives//reform_tier3_closed.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_reform_tier4_closed"
+		texturefile = "gfx//interface//government_reform_icons//natives//reform_tier4_closed.dds"
+	}
+	
+	spriteType = {
+		name = "government_reform_reform_tier5_closed"
+		texturefile = "gfx//interface//government_reform_icons//natives//reform_tier5_closed.dds"
+	}
+	
+	###
+	spriteType = {
+		name = "GFX_disaster_nat_pulse_system"
+		texturefile = "gfx//interface//disasters//nat_pulse_system.dds"
+		noOfFrames = 3
+		loadType = "INGAME"
+	}
+}

@@ -61,7 +61,6 @@ native_council_after = {
 	icon = "generic_people"
 	allow_normal_conversion = no
 	potential = {
-		#nhs_is_elysia_not_seen = yes
 		has_reform = native_council_after
 	}
 	legacy_equivalent = native_council_after_legacy
@@ -101,7 +100,7 @@ native_council_after = {
 	}
 }
 
-nhs_locked_reform = {
+nat_locked_reform = {
 	icon = "locked"
 	modifiers = {
 	}
@@ -110,6 +109,7 @@ nhs_locked_reform = {
 ##TIER 1
 migratory_society = {
 	icon = "tier0"
+	fixed_rank = 1
 	allow_migration = yes
 	trigger = {
 		NOT = { num_of_cities = 2 }
@@ -117,13 +117,19 @@ migratory_society = {
 	legacy_equivalent = native_council_legacy
 	modifiers = {
 		stability_cost_modifier = -0.33
-		land_maintenance_modifier = -0.25
+		land_maintenance_modifier = -1
 		diplomatic_upkeep = -1
-		global_institution_spread = -0.1
 		max_absolutism = -100
+		max_states = -20
+	}
+	effect = {
+		nat_ignore_corruption_on_switch = yes
+		nat_display_native_advancement = yes
+	
 	}
 	custom_attributes = {
-		locked_government_type = yes
+		enables_plutocratic_idea_group = no
+		enables_aristocratic_idea_group = no
 	}
 	ai = {
 		factor = 0
@@ -137,28 +143,85 @@ sedentary_society = {
 	modifiers = {
 		stability_cost_modifier = -0.20
 		land_maintenance_modifier = -0.25
-		max_absolutism = -50
+		max_absolutism = -75
+		reform_progress_growth = -1
+	}
+	effect = {
+		nat_ignore_corruption_on_switch = yes
+		nat_display_native_advancement = yes
 	}
 	custom_attributes = {
-		locked_government_type = yes
+		enables_plutocratic_idea_group = no
+		enables_aristocratic_idea_group = no
 	}
 }
 
 ##TIER 3
-nhs_reformed_native_council = {
-	republican_name = yes
+nat_reformed_native_council = {
 	icon = "tier2_reformed"
+	republic = yes
+	has_term_election = no
 	modifiers = {
-		max_states = 3
-		stability_cost_modifier = -0.10
-		land_maintenance_modifier = -0.10
-		land_forcelimit_modifier = 0.10
-		global_autonomy = -0.1
-		max_absolutism = -30
+		max_states = 1
+		advisor_cost = -0.25
+		years_of_nationalism = -5
+		max_absolutism = -50
+	}
+	effect = {
+		nat_ignore_corruption_on_switch = yes
+		nat_display_native_advancement = yes
+	}
+	# states_general_mechanic = {
+		# councils = {
+			# advisor_cost = -0.25
+			# administrative_efficiency = 0.05
+			# general_cost = -0.5
+		# }
+		# tribes = {
+			# global_manpower = 0.15
+			# global_unrest = -2
+			# global_colonial_growth = 10
+		# }
+	# }
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
 	}
 }
 
-nhs_early_native_republic = {
+nat_native_hereditary = {
+	royal_marriage = yes
+	heir = yes
+	icon = "tier2_hereditary"
+	modifiers = {
+		stability_cost_modifier = -0.10
+		land_maintenance_modifier = -0.10
+		land_forcelimit_modifier = 0.10
+		max_absolutism = -10
+	}
+	effect = {
+		nat_ignore_corruption_on_switch = yes
+		nat_display_native_advancement = yes
+	}
+	states_general_mechanic = {
+		council = {
+			advisor_cost = -0.25
+			administrative_efficiency = 0.05
+			min_autonomy = 10
+		}
+		chief = {
+			prestige = 0.5
+			all_power_cost = -0.1
+			global_unrest = 2
+		}
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = no
+		enables_aristocratic_idea_group = yes
+	}
+}
+
+nat_early_native_republic = {
 	royal_marriage = yes
 	republican_name = yes
 	icon = "tier2_republic"
@@ -172,21 +235,7 @@ nhs_early_native_republic = {
 	}
 }
 
-nhs_native_heredetary = {
-	royal_marriage = yes
-	republican_name = yes
-	icon = "tier2_hereditary"
-	modifiers = {
-		max_states = 3
-		stability_cost_modifier = -0.10
-		land_maintenance_modifier = -0.10
-		land_forcelimit_modifier = 0.10
-		global_autonomy = -0.1
-		max_absolutism = -30
-	}
-}
-
-nhs_native_horde = {
+nat_native_horde = {
 	valid_for_new_country = no
 	allow_convert = no
 	royal_marriage = yes
@@ -205,7 +254,7 @@ nhs_native_horde = {
 	}
 }
 
-nhs_native_early_theocracy = {
+nat_native_early_theocracy = {
 	has_devotion = yes
 	religion = yes
 	heir = yes
@@ -221,7 +270,7 @@ nhs_native_early_theocracy = {
 }
 
 ##TIER 4
-nhs_native_modern_council = {
+nat_native_modern_council = {
 	republican_name = yes
 	icon = "tier3_modern"
 	modifiers = {
@@ -234,7 +283,7 @@ nhs_native_modern_council = {
 	}
 }
 
-nhs_native_democracy = {
+nat_native_democracy = {
 	republican_name = yes
 	icon = "tier3_democracy"
 	modifiers = {
@@ -247,7 +296,7 @@ nhs_native_democracy = {
 	}
 }
 
-nhs_native_republic = {
+nat_native_republic = {
 	royal_marriage = yes
 	republican_name = yes
 	icon = "tier3_republic"
@@ -261,7 +310,7 @@ nhs_native_republic = {
 	}
 }
 
-nhs_native_monarchy = {
+nat_native_monarchy = {
 	royal_marriage = yes
 	republican_name = yes
 	icon = "tier3_monarchy"
@@ -275,7 +324,7 @@ nhs_native_monarchy = {
 	}
 }
 
-nhs_native_theocracy = {
+nat_native_theocracy = {
 	has_devotion = yes
 	religion = yes
 	heir = yes
@@ -287,6 +336,669 @@ nhs_native_theocracy = {
 		land_forcelimit_modifier = 0.10
 		global_autonomy = -0.1
 		max_absolutism = -30
+	}
+}
+
+
+
+##### GOVERNMENT REFORMS
+
+
+#### LITERACY
+
+nat_reform_no_writing = {
+	icon = "oral_tradition"
+	modifiers = {
+		stability_cost_modifier = -0.33
+		technology_cost = 0.5
+		idea_cost = 0.5
+		global_institution_spread = -0.6
+		prestige_decay = 0.05
+	}
+}
+
+nat_reform_native_writing = {
+	icon = "writing_native"
+	modifiers = {
+		prestige_decay = -0.02
+		native_assimilation = 0.5
+	}
+	effect = {
+		custom_tooltip = nat_reduced_nationalism_in_native_provinces
+	}
+}
+
+nat_reform_norse_writing = {
+	icon = "writing_norse"
+	modifiers = {
+		legitimacy = 0.25
+		republican_tradition = 0.125
+		devotion = 0.25
+		horde_unity = 0.25
+		meritocracy = 0.1
+	}
+	effect = {
+		custom_tooltip = nat_bonus_opinion_with_vikings
+		custom_tooltip = nat_increased_reformation_progress_from_norse
+	}
+}
+
+nat_reform_elysian_writing = {
+	icon = "writing_elysian"
+	modifiers = {
+		global_foreign_trade_power = 0.05
+	}
+	effect = {
+		custom_tooltip = nat_bonus_opinion_with_elysians
+		custom_tooltip = nat_increased_reformation_progress_from_elysians
+	}
+}
+
+#### TIER 1
+
+nat_reform_tier1 = {
+	icon = "reform_tier1_closed"
+	potential = {
+		NOT = {
+			OR = {
+				has_reform = migratory_society
+				has_reform = sedentary_society
+				has_reform = nat_reformed_native_council
+				has_reform = nat_native_hereditary
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = nat_no_corruption_from
+	}
+}
+
+### CULTURAL VALUES
+
+nat_reform_tier1_cultural_values = {
+	potential = {
+		OR = {
+			has_reform = migratory_society
+			has_reform = sedentary_society
+			has_reform = nat_reformed_native_council
+			has_reform = nat_native_hereditary
+		}
+	}
+	icon = "reform_tier1"
+	effect = {
+		custom_tooltip = nat_no_corruption_from
+	}
+}
+
+nat_reform_tier1_cultural_values = {
+	icon = "reform_tier1"
+	trigger = {
+		if = {
+			limit = {
+				OR = {
+					has_reform = nat_martial_society_reform
+					has_reform = nat_civil_society_reform
+				}
+			}
+			has_reform = nat_reform_tier1_cultural_values
+		}
+	}
+	effect = {
+		custom_tooltip = nat_no_corruption_from
+	}
+}
+
+nat_martial_society_reform = {
+	potential = {
+		OR = {
+			has_reform = migratory_society
+			has_reform = sedentary_society
+			has_reform = nat_reformed_native_council
+			has_reform = nat_native_hereditary
+		}
+	}
+	trigger = {
+		government_reform_progress = 100
+	}
+	effect = {
+		nat_ignore_corruption_on_switch_first_time = { BASE_REFORM = nat_reform_tier1_cultural_values }
+		change_government_reform_progress = -100
+	}
+	allow_normal_conversion = yes
+	icon = "tribal_martial_society"
+	modifiers = {
+		global_manpower_modifier = 0.2
+	}
+}
+
+nat_civil_society_reform = {
+	potential = {
+		OR = {
+			has_reform = migratory_society
+			has_reform = sedentary_society
+			has_reform = nat_reformed_native_council
+			has_reform = nat_native_hereditary
+		}
+	}
+	trigger = {
+		government_reform_progress = 100
+	}
+	effect = {
+		nat_ignore_corruption_on_switch_first_time = { BASE_REFORM = nat_reform_tier1_cultural_values }
+		change_government_reform_progress = -100
+	}
+	allow_normal_conversion = yes
+	icon = "tribal_civil_society"
+	modifiers = {
+		global_tax_modifier = 0.05
+		yearly_corruption = -0.05
+	}
+}
+
+### COUNCIL
+
+nat_reform_tier1_council = {
+	icon = "reform_tier1"
+	trigger = {
+		if = {
+			limit = {
+				OR = {
+					has_reform = nat_reformed_native_council
+				}
+			}
+			has_reform = nat_reform_tier1_cultural_values
+		}
+	}
+	effect = {
+		custom_tooltip = nat_no_corruption_from
+	}
+}
+
+nat_reform_council_hereditary = {
+	potential = {
+		OR = {
+			has_reform = nat_reformed_native_council
+		}
+	}
+	trigger = {
+		government_reform_progress = 100
+	}
+	effect = {
+		nat_ignore_corruption_on_switch_first_time = { BASE_REFORM = nat_reform_tier1_cultural_values }
+		change_government_reform_progress = -100
+	}
+	allow_normal_conversion = yes
+	icon = "tribal_civil_society"
+	modifiers = {
+		stability_cost_modifier = -0.10
+		max_absolutism = 10
+		adm_advisor_cost = -0.25
+		republican_tradition = -0.1
+	}
+	custom_attributes = {
+		enables_aristocratic_idea_group = yes
+	}
+}
+
+nat_reform_council_eldership = {
+	potential = {
+		OR = {
+			has_reform = nat_reformed_native_council
+		}
+	}
+	trigger = {
+		government_reform_progress = 100
+	}
+	effect = {
+		nat_ignore_corruption_on_switch_first_time = { BASE_REFORM = nat_reform_tier1_cultural_values }
+		change_government_reform_progress = -100
+	}
+	allow_normal_conversion = yes
+	icon = "tribal_civil_society"
+	modifiers = {
+		stability_cost_modifier = -0.10
+		free_adm_policy = 1
+	}
+}
+
+nat_reform_council_popular = {
+	potential = {
+		OR = {
+			has_reform = nat_reformed_native_council
+		}
+	}
+	trigger = {
+		government_reform_progress = 100
+	}
+	effect = {
+		nat_ignore_corruption_on_switch_first_time = { BASE_REFORM = nat_reform_tier1_cultural_values }
+		change_government_reform_progress = -100
+	}
+	allow_normal_conversion = yes
+	icon = "tribal_civil_society"
+	modifiers = {
+		republican_tradition = 0.2
+		yearly_corruption = -0.05
+	}
+}
+
+#### TIER 2
+
+nat_reform_tier2 = {
+	icon = "reform_tier2_closed"
+	NOT = {
+		OR = {
+			has_reform = migratory_society
+			has_reform = sedentary_society
+			has_reform = nat_reformed_native_council
+			has_reform = nat_native_hereditary
+		}
+	}
+	effect = {
+		custom_tooltip = nat_no_corruption_from
+	}
+}
+
+### CENTRALISATION
+
+nat_reform_tier2_centralisation = {
+	icon = "reform_tier2"
+	potential = {
+		OR = {
+			has_reform = migratory_society
+			has_reform = sedentary_society
+			has_reform = nat_reformed_native_council
+			has_reform = nat_native_hereditary
+		}
+	}
+	effect = {
+		custom_tooltip = nat_no_corruption_from
+	}
+}
+
+nat_retain_tribal_hierarchy_reform = {
+	icon = "retain_tribal_hierarchy"
+	potential = {
+		OR = {
+			has_reform = migratory_society
+			has_reform = sedentary_society
+			has_reform = nat_reformed_native_council
+			has_reform = nat_native_hereditary
+		}
+	}
+	allow_normal_conversion = yes
+	modifiers = {
+		max_states = 3
+	}
+}
+
+nat_centralize_tribal_power_reform = {
+	icon = "tribal_centralize_power"
+	potential = {
+		OR = {
+			has_reform = migratory_society
+			has_reform = sedentary_society
+			has_reform = nat_reformed_native_council
+			has_reform = nat_native_hereditary
+		}
+	}
+	allow_normal_conversion = yes
+	modifiers = {
+		core_creation = -0.05
+		stability_cost_modifier = -0.05
+		max_absolutism = 10
+	}
+}
+
+### Deliberative Assembly
+
+nat_reform_tier2_deliberative_assembly = {
+	icon = "reform_tier2"
+	potential = {
+		OR = {
+			has_reform = nat_native_monarchy
+		}
+	}
+	effect = {
+		custom_tooltip = nat_no_corruption_from
+	}
+}
+
+nat_reform_parliamentary_reform = {
+	icon = "judge"
+	modifiers = {
+		global_unrest = -2
+	}
+	potential = {
+		OR = {
+			has_reform = nat_native_monarchy
+		}
+	}
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+}
+
+nat_reform_royal_decree = {
+	icon = "king"
+	potential = {
+		NOT = { has_reform = senatorial_empire }
+	}
+	allow_normal_conversion = yes
+	modifiers = {
+		max_absolutism = 5
+	}
+}
+
+### Evolution of Bureaucracy
+
+# Expanded Council (Parliament)
+# Expand the Beraucratic Aparatus
+# Centralize the Power (Dutch mechanics, Chief vs Council)
+# Decentralize the Power (Dutch mechanics, Chief vs Council)
+
+
+#### TIER 3
+
+nat_reform_tier3 = {
+	icon = "reform_tier3_closed"
+	effect = {
+		custom_tooltip = nat_no_corruption_from
+	}
+}
+
+### ELECTIONS
+
+nat_reform_tier3_elections = {
+	icon = "reform_tier3"
+	potential = {
+		OR = {
+			has_reform = nat_reformed_native_council
+		}
+	}
+	effect = {
+		custom_tooltip = nat_no_corruption_from
+	}
+}
+
+nat_reform_no_elections = {
+	icon = "retain_tribal_hierarchy"
+	potential = {
+		OR = {
+			has_reform = nat_reformed_native_council
+		}
+	}
+	allow_normal_conversion = yes
+	modifiers = {
+		possible_policy = 1
+		stability_cost_modifier = -0.10
+	}
+}
+
+nat_reform_council_elections = {
+	icon = "retain_tribal_hierarchy"
+	potential = {
+		OR = {
+			has_reform = nat_reformed_native_council
+		}
+	}
+	#duration = 10
+	allow_normal_conversion = yes
+	modifiers = {
+		free_adm_policy = 1
+		max_absolutism = 5
+	}
+}
+
+nat_reform_popular_elections = {
+	icon = "retain_tribal_hierarchy"
+	potential = {
+		OR = {
+			has_reform = nat_reformed_native_council
+		}
+	}
+	#duration = 6
+	allow_normal_conversion = yes
+	modifiers = {
+		monarch_diplomatic_power = 1
+	}
+}
+
+### SUCCESSION
+
+nat_reform_tier3_succession = {
+	icon = "reform_tier3"
+	potential = {
+		OR = {
+			has_reform = nat_native_hereditary
+		}
+	}
+	effect = {
+		custom_tooltip = nat_no_corruption_from
+	}
+}
+
+nat_reform_competitive_inheritance = {
+	icon = "retain_tribal_hierarchy"
+	potential = {
+		OR = {
+			has_reform = nat_native_hereditary
+		}
+	}
+	allow_normal_conversion = yes
+	modifiers = {
+		max_absolutism = 5
+	}
+}
+
+nat_reform_council_chooses = {
+	icon = "retain_tribal_hierarchy"
+	heir = no
+	potential = {
+		OR = {
+			has_reform = nat_native_hereditary
+		}
+	}
+	allow_normal_conversion = yes
+	modifiers = {
+		free_policy = 1
+		max_absolutism = -20
+	}
+}
+
+nat_reform_primogeniture = {
+	icon = "retain_tribal_hierarchy"
+	potential = {
+		OR = {
+			has_reform = nat_native_hereditary
+		}
+	}
+	allow_normal_conversion = yes
+	modifiers = {
+		legitimacy = 0.5
+		max_absolutism = 5
+	}
+}
+
+
+#### TIER 4
+
+nat_reform_tier4 = {
+	icon = "reform_tier4_closed"
+	potential = {
+		NOT = {
+			OR = {
+				has_reform = nat_native_monarchy
+				has_reform = nat_reformed_native_council
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = nat_no_corruption_from
+	}
+}
+
+### TERM LIMITS
+
+nat_reform_tier4_term_limits = {
+	icon = "reform_tier4_closed"
+	potential = {
+		NOT = {
+			OR = {
+				has_reform = nat_reformed_native_council
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = nat_no_corruption_from
+	}
+}
+
+nat_reform_frequest_elections = {
+	icon = "retain_tribal_hierarchy"
+	potential = {
+		OR = {
+			has_reform = nat_reformed_native_council
+		}
+	}
+	duration = 4
+	allow_normal_conversion = yes
+	modifiers = {
+		republican_tradition = 0.2
+	}
+}
+
+nat_reform_longer_terms = {
+	icon = "retain_tribal_hierarchy"
+	potential = {
+		OR = {
+			has_reform = nat_reformed_native_council
+		}
+	}
+	duration = 6
+	allow_normal_conversion = yes
+	modifiers = {
+		max_absolutism = 10
+	}
+}
+
+nat_reform_lifetime_term = {
+	icon = "retain_tribal_hierarchy"
+	potential = {
+		OR = {
+			has_reform = nat_reformed_native_council
+		}
+	}
+	has_term_election = no
+	allow_normal_conversion = yes
+	modifiers = {
+		max_absolutism = 20
+	}
+}
+
+# ### ELITE
+
+# nat_reform_tier4_ruling_elite = { ##Credit to M&T, provides a nice mix of The Administrative Cadre and Power Structure
+	# icon = "reform_tier4_closed"
+	# potential = {
+		# OR = {
+			# has_reform = nat_native_monarchy
+		# }
+	# }
+	# effect = {
+		# custom_tooltip = nat_no_corruption_from
+	# }
+# }
+
+# nat_reform_hereditary_elite = {
+	# icon = "nobleman"
+	# allow_normal_conversion = yes
+	# potential = {
+		# OR = {
+			# has_reform = nat_native_monarchy
+		# }
+	# }
+	# trigger = {
+		# always = yes
+	# }
+	# modifiers = {
+		# legitimacy = 0.5
+		# stability_cost_modifier = -0.1
+	# }
+# }
+
+# nat_reform_appointed_elite = {
+	# icon = "judge"
+	# allow_normal_conversion = yes
+	# potential = {
+		# OR = {
+			# has_reform = nat_native_monarchy
+		# }
+	# }
+	# trigger = {
+		# always = yes
+	# }
+	# modifiers = {
+		# min_autonomy_in_territories = 0.1
+	# }
+# }
+
+# nat_reform_wealthy_elite = {
+	# icon = "merchant"
+	# allow_normal_conversion = yes
+	# potential = {
+		# OR = {
+			# has_reform = nat_native_monarchy
+		# }
+	# }
+	# trigger = {
+		# always = yes
+	# }
+	# modifiers = {
+		# technology_cost = -0.10
+		# max_absolutism = -10
+	# }
+# }
+
+# nat_reform_military_elite = {
+	# icon = "soldiers_2"
+	# allow_normal_conversion = yes
+	# potential = {
+		# OR = {
+			# has_reform = nat_native_monarchy
+		# }
+	# }
+	# trigger = {
+		# always = yes
+	# }
+	# valid_for_nation_designer = yes
+	# nation_designer_cost = 0
+	# nation_designer_trigger = {
+		# NOT = { competitive_trigger = yes }
+	# }
+	# modifiers = {
+		# global_manpower_modifier = 0.1
+		# land_morale = 0.1
+		# global_regiment_cost = 0.1
+		# global_unrest = 2
+	# }
+# }
+
+
+#### TIER 5
+
+nat_reform_tier5 = {
+	icon = "reform_tier5_closed"
+	potential = {
+		NOT = {
+			OR = {
+				has_reform = nat_native_monarchy
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = nat_no_corruption_from
 	}
 }
 

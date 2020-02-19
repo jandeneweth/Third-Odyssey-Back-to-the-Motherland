@@ -8,3 +8,7 @@ smallpox_ignore_tag = {
 		tag = QQI
 	}
 }
+
+prs_has_smallpox = {
+	always = no
+}

@@ -25,9 +25,10 @@ nat_pulse_system = {
 		always = no
 	}
 	
-	on_start = nat_native_aggression.2
+	on_start = nat_mechanics.1
 	
 	on_monthly = {
-		log = "MONTHLY DISASTER"
+		
+		nat_maintenance = yes
 	}
 }

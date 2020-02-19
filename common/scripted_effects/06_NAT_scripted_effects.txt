@@ -1,3 +1,175 @@
+nat_ignore_corruption_on_switch = {
+	custom_tooltip = msg_ignore_reform_corr_tt
+	hidden_effect = {
+		add_corruption = -10
+	}
+}
+
+nat_ignore_corruption_on_switch_first_time = {
+	custom_tooltip = msg_ignore_reform_corr_first_time_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				has_reform = $BASE_REFORM$
+			}
+			add_corruption = -10
+		}
+	}
+}
+
+nat_display_native_advancement = {
+	if = {
+		limit = {
+			ai = no
+		}
+		custom_tooltip = nat_new_line_tt
+		custom_tooltip = nat_advancement_title_tt
+		if = {
+			limit = {
+				any_neighbor_country = {
+					is_considered_advanced = yes
+				}
+			}
+			if = {
+				limit = {
+					any_active_trade_node = {
+						any_trade_node_member_province = {
+							owner = {
+								is_considered_advanced = yes
+								has_opinion = {
+									who = ROOT
+									value = 0
+								}
+							}
+						}
+					}
+				} 
+				custom_tooltip = nat_advancement_neighbor_or_trading_yes_yes_tt
+			}
+			else = {
+				custom_tooltip = nat_advancement_neighbor_or_trading_yes_no_tt
+			}
+		}
+		else_if = {
+			limit = {
+				any_active_trade_node = {
+					any_trade_node_member_province = {
+						owner = {
+							is_considered_advanced = yes
+							has_opinion = {
+								who = ROOT
+								value = 0
+							}
+						}
+					}
+				}
+			}
+			custom_tooltip = nat_advancement_neighbor_or_trading_no_yes_tt
+		}
+		else = {
+			custom_tooltip = nat_advancement_neighbor_or_trading_no_no_tt
+		}
+		if = {
+			limit = {
+				any_neighbor_country = {
+					is_considered_advanced = yes
+					OR = {
+						has_opinion = {
+							who = ROOT
+							value = 70
+						}
+						alliance_with = ROOT
+					}
+				}
+			}
+			custom_tooltip = nat_advancement_friendly_known_or_neutral_yes_yes_tt
+			custom_tooltip = nat_advancement_friendly_neighbor_ally_yes_tt
+		}
+		else_if = {
+			limit = {
+				any_neighbor_country = {
+					is_considered_advanced = yes
+					has_opinion = {
+						who = ROOT
+						value = 0
+					}
+					NOT = { war_with = ROOT }
+				}
+			}
+			custom_tooltip = nat_advancement_friendly_known_or_neutral_no_yes_tt
+			custom_tooltip = nat_advancement_friendly_neighbor_ally_no_tt
+		}
+		else_if = {
+			limit = {
+				any_known_country = {
+					is_considered_advanced = yes
+					OR = {
+						alliance_with = ROOT
+						has_opinion = {
+							who = ROOT
+							value = 70
+						}
+					}
+				}
+			}
+			custom_tooltip = nat_advancement_friendly_known_or_neutral_yes_no_tt
+			custom_tooltip = nat_advancement_friendly_neighbor_ally_no_tt
+		}
+		else = {
+			custom_tooltip = nat_advancement_friendly_known_or_neutral_no_no_tt
+			custom_tooltip = nat_advancement_friendly_neighbor_ally_no_tt
+		}
+		if = {
+			limit = {
+				is_subject = yes
+				overlord = {
+					is_considered_advanced = yes
+				}
+			}
+			custom_tooltip = nat_advancement_subject_yes_tt
+		}
+		else = {
+			custom_tooltip = nat_advancement_subject_no_tt
+		}
+		if = {
+			limit = {
+				has_institution = feudalism
+			}
+			custom_tooltip = nat_advancement_embraced_feudalism_yes_tt
+		}
+		else = {
+			custom_tooltip = nat_advancement_embraced_feudalism_no_tt
+		}
+		custom_tooltip = nat_new_line_tt
+		if = {
+			limit = {
+				has_any_disaster = yes
+			}
+			custom_tooltip = nat_advancement_disaster_yes_tt
+		}
+		else = {
+			custom_tooltip = nat_advancement_disaster_no_tt
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					prs_has_smallpox = yes
+				}
+			}
+			custom_tooltip = nat_advancement_smallpox_yes_tt
+		}
+		else = {
+			custom_tooltip = nat_advancement_smallpox_no_tt
+		}
+		custom_tooltip = nat_new_line_tt
+		custom_tooltip = nat_advancement_explanations_tt
+		custom_tooltip = nat_new_line_tt
+		custom_tooltip = nat_new_line_tt
+	}
+}
+
+
+
 #on_start
 nat_initialize_native_aggression = {
 	if = {
@@ -72,13 +244,29 @@ nat_initialize_native_aggression = {
 
 nat_change_aggression_controller = {
 	FROM = {
-		clr_country_flag = nat_current_native_controller
-		random_country = {
+		if = {
 			limit = {
-				ai = yes
-				exists = yes
+				has_country_flag = nat_current_native_controller
 			}
-			set_country_flag = nat_current_native_controller
+			clr_country_flag = nat_current_native_controller
+			if = {
+				limit = {
+					NOT = {
+						any_country = {
+							has_country_flag = nat_current_native_controller
+							ai = yes
+							exists = yes
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						ai = yes
+						exists = yes
+					}
+					set_country_flag = nat_current_native_controller
+				}
+			}
 		}
 	}
 }
@@ -91,159 +279,121 @@ nat_add_advancement = {
 	# }
 }
 
+nat_calculate_advancement_points = {
+	if = {
+		limit = {
+			any_neighbor_country = {
+				is_considered_advanced = yes
+				OR = {
+					has_opinion = {
+						who = ROOT
+						value = 70
+					}
+					alliance_with = ROOT
+				}
+			}
+		}
+		nat_add_advancement = { VAL = 3 }
+		log = "1"
+	}
+	else_if = {
+		limit = {
+			any_neighbor_country = {
+				is_considered_advanced = yes
+				has_opinion = {
+					who = ROOT
+					value = 0
+				}
+				NOT = { war_with = ROOT }
+			}
+		}
+		nat_add_advancement = { VAL = 2 }
+		log = "2"
+	}
+	else_if = {
+		limit = {
+			any_known_country = {
+				is_considered_advanced = yes
+				OR = {
+					alliance_with = ROOT
+					has_opinion = {
+						who = ROOT
+						value = 70
+					}
+				}
+			}
+		}
+		nat_add_advancement = { VAL = 2 }
+		log = "3"
+	}
+	else_if = {
+		limit = {
+			any_neighbor_country = {
+				is_considered_advanced = yes
+			}
+		}
+		nat_add_advancement = { VAL = 1 }
+		log = "4"
+	}
+	else_if = {
+		limit = {
+			any_active_trade_node = {
+				any_trade_node_member_province = {
+					owner = {
+						is_considered_advanced = yes
+						has_opinion = {
+							who = ROOT
+							value = 0
+						}
+					}
+				}
+			}
+		}
+		nat_add_advancement = { VAL = 1 }
+		log = "5"
+	}
+	if = {
+		limit = {
+			is_subject = yes
+			overlord = {
+				is_considered_advanced = yes
+			}
+		}
+		nat_add_advancement = { VAL = 7 }
+		log = "6"
+	}
+	if = {
+		limit = {
+			has_institution = feudalism
+		}
+		nat_add_advancement = { VAL = 3 }
+		log = "7"
+	}
+	if = {
+		limit = {
+			has_any_disaster = yes
+		}
+		nat_add_advancement = { VAL = -2 }
+		log = "8"
+	}
+	if = {
+		limit = {
+			prs_has_smallpox = yes
+		}
+		nat_add_advancement = { VAL = -1 }
+		log = "9"
+	}
+}
+
 nat_maintenance = {
+	log = "MONTHLY DISASTER"
 	every_country = {
 		limit = {
-			government = native
+			has_reform = native_basic_reform
+			NOT = { is_considered_advanced = yes }
+			tag = HUR
 		}
-		if = {
-			limit = {
-				any_known_country = {
-					is_considered_advanced = yes
-					OR = {
-						alliance_with = ROOT
-						has_opinion = {
-							who = ROOT
-							value = 70
-						}
-					}
-				}
-			}
-			nat_add_advancement = { VAL = 1 }
-		}
-		if = {
-			limit = {
-				any_neighbor_country = {
-					is_considered_advanced = yes
-					OR = {
-						has_opinion = {
-							who = ROOT
-							value = 70
-						}
-						alliance_with = ROOT
-					}
-				}
-			}
-			nat_add_advancement = { VAL = 3 }
-		}
-		else_if = {
-			limit = {
-				any_neighbor_country = {
-					is_considered_advanced = yes
-					has_opinion = {
-						who = ROOT
-						value = 0
-					}
-					NOT = { war_with = ROOT }
-				}
-			}
-			nat_add_advancement = { VAL = 2 }
-		}
-		else_if = {
-			limit = {
-				any_neighbor_country = {
-					is_considered_advanced = yes
-					OR = {
-						NOT = {
-							has_opinion = {
-								who = ROOT
-								value = 0
-							}
-						}
-						war_with = ROOT
-					}
-				}
-			}
-			nat_add_advancement = { VAL = 1 }
-		}
-		else_if = {
-			limit = {
-				any_country = {
-					is_considered_advanced = yes
-					OR = {
-						any_active_trade_node = {
-							any_trade_node_member_province = {
-								owned_by = ROOT
-							}
-						}
-						home_trade_node = {
-							any_trade_node_member_province = {
-								owned_by = ROOT
-							}
-						}
-					}
-					has_opinion = {
-						who = ROOT
-						value = 0
-					}
-				}
-			}
-			nat_add_advancement = { VAL = 1 }
-		}
-		if = {
-			limit = {
-				is_subject = yes
-				overlord = {
-					is_considered_advanced = yes
-				}
-			}
-			nat_add_advancement = { VAL = 7 }
-		}
-		if = {
-			limit = {
-				any_owned_province = {
-					has_institution = feudalism
-				}
-			}
-			nat_add_advancement = { VAL = 3 }
-		}
-		if = {
-			limit = {
-				has_any_disaster = yes
-			}
-			nat_add_advancement = { VAL = -2 }
-			# if = {
-				# limit = {
-					# check_variable = {
-						# which = myCountingVariable
-						# value = 2
-					# }
-				# }
-				# nat_add_advancement = { VAL = -2 }
-			# }
-			# else = {
-				# set_variable = {
-					# which = nhsAdvancementPoints
-					# value = 0
-				# }
-			# }
-		}
-		if = {
-			limit = {
-				any_owned_province = {
-					prs_has_smallpox = yes
-				}
-			}
-			nat_add_advancement = { VAL = -1 }
-			# if = {
-				# limit = {
-					# check_variable = {
-						# which = myCountingVariable
-						# value = 1
-					# }
-				# }
-				# subtract_variable = {
-					# which = nhsAdvancementPoints
-					# value = 1
-				# }
-			# }
-			# else = {
-				# set_variable = {
-					# which = nhsAdvancementPoints
-					# value = 0
-				# }
-			# }
-		}
+		country_event = { id = nat_mechanics.2 }
 	}
 }
 

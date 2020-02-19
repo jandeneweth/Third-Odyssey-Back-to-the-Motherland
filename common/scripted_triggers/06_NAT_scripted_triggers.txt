@@ -17,14 +17,9 @@ nhs_foreign_nation = {
 
 
 
-# nhs_has_advanced_native_government = {
-	# OR = {
-		# government = nhs_advanced_native_council
-		# government = nhs_native_republic
-		# government = nhs_native_kingdom
-		# government = nhs_native_theocracy
-	# }
-# }
+nhs_has_advanced_native_government = {
+	always = no
+}
 
 # nhs_redone_native_government = {
 	# OR = {

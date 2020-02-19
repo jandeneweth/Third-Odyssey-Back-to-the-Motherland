@@ -665,16 +665,53 @@ native = {
 			reforms = {
 				migratory_society
 				sedentary_society
-				nhs_native_modern_council
-				nhs_locked_reform
-				nhs_native_early_theocracy
-				nhs_reformed_native_council
-				nhs_early_native_republic
-				nhs_native_heredetary
-				nhs_native_theocracy
-				nhs_native_democracy
-				nhs_native_republic
-				nhs_native_monarchy
+				# nat_native_modern_council
+				# nat_locked_reform
+				# nat_native_early_theocracy
+				nat_reformed_native_council
+				# nat_early_native_republic
+				nat_native_hereditary
+				# nat_native_theocracy
+				# nat_native_democracy
+				# nat_native_republic
+				# nat_native_monarchy
+			}
+		}
+		native_writing = {
+			reforms = {
+				nat_reform_no_writing
+				nat_reform_native_writing
+				# nat_reform_other_writing
+				nat_reform_elysian_writing
+				nat_reform_norse_writing
+			}
+		}
+		native_tier1 = {
+			reforms = {
+				nat_reform_tier1
+				nat_reform_tier1_cultural_values
+				nat_martial_society_reform
+				nat_civil_society_reform
+			}
+		}
+		native_tier2 = {
+			reforms = {
+				nat_reform_tier2
+			}
+		}
+		native_tier3 = {
+			reforms = {
+				nat_reform_tier3
+			}
+		}
+		native_tier4 = {
+			reforms = {
+				nat_reform_tier4
+			}
+		}
+		native_tier5 = {
+			reforms = {
+				nat_reform_tier5
 			}
 		}
 	}
