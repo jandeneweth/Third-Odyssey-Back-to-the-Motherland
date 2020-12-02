@@ -2802,91 +2802,80 @@ country_event = {
 				}
 			}
 		}
-		#tooltip = {
-			if = {
-				limit = {
+		if = {
+			limit = {
+				has_country_flag = nhs_new_flight_food_status_4
+			}
+			custom_tooltip = nhs_new_flight_food_status_4_tt
+		}
+		else_if = {
+			limit = {
+				has_country_flag = nhs_new_flight_food_status_3
+			}
+			custom_tooltip = nhs_new_flight_food_status_3_tt
+		}
+		else_if = {
+			limit = {
+				has_country_flag = nhs_new_flight_food_status_2
+			}
+			custom_tooltip = nhs_new_flight_food_status_2_tt
+		}
+		else_if = {
+			limit = {
+				has_country_flag = nhs_new_flight_food_status_1
+			}
+			custom_tooltip = nhs_new_flight_food_status_1_tt
+		}
+		else_if = {
+			limit = {
+				has_country_flag = nhs_new_flight_food_status_0
+			}
+			custom_tooltip = nhs_new_flight_food_status_1_tt
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = {
+				OR = {
 					has_country_flag = nhs_new_flight_food_status_4
-				}
-				custom_tooltip = nhs_new_flight_food_status_4_tt
-			}
-			else_if = {
-				limit = {
 					has_country_flag = nhs_new_flight_food_status_3
-				}
-				custom_tooltip = nhs_new_flight_food_status_3_tt
-			}
-			else_if = {
-				limit = {
 					has_country_flag = nhs_new_flight_food_status_2
 				}
-				custom_tooltip = nhs_new_flight_food_status_2_tt
 			}
-			else_if = {
-				limit = {
-					has_country_flag = nhs_new_flight_food_status_1
-				}
-				custom_tooltip = nhs_new_flight_food_status_1_tt
-			}
-			else_if = {
-				limit = {
-					has_country_flag = nhs_new_flight_food_status_0
-				}
-				custom_tooltip = nhs_new_flight_food_status_1_tt
-			}
-			custom_tooltip = nhs_new_line_tt
-			if = {
-				limit = {
-					OR = {
-						has_country_flag = nhs_new_flight_food_status_4
-						has_country_flag = nhs_new_flight_food_status_3
-						has_country_flag = nhs_new_flight_food_status_2
-					}
-				}
-				custom_tooltip = nhs_new_flight_food_status_modifiers_tt
-			}
-			else = {
-				custom_tooltip = nhs_new_flight_food_status_modifiers_worse_tt
-			}
-			custom_tooltip = nhs_new_line_tt
-			# if = {
-				# limit = {
-					# has_country_flag = nhs_new_flight_sold_morea_to_venice
-				# }
-				# custom_tooltip = nhs_new_flight_sold_morea_to_venice_tt
+			custom_tooltip = nhs_new_flight_food_status_modifiers_tt
+		}
+		else = {
+			custom_tooltip = nhs_new_flight_food_status_modifiers_worse_tt
+		}
+		custom_tooltip = nhs_new_line_tt
+		# if = {
+			# limit = {
+				# has_country_flag = nhs_new_flight_sold_morea_to_venice
 			# }
-			# else_if = {
-				# limit = {
-					# has_country_flag = nhs_new_flight_sold_morea_to_genoa
-				# }
-				# custom_tooltip = nhs_new_flight_sold_morea_to_genoa_tt
-			# }
-			if = {
-				limit = {
-					has_country_flag = nhs_new_flight_taken_albanians
-				}
-				custom_tooltip = nhs_new_flight_taken_albanians_end_tt
-			}
-			# if = {
-				# limit = {
-					# has_country_flag = nhs_new_flight_ship_loses_gra
-				# }
-				# custom_tooltip = nhs_new_flight_ship_loses_gra_tt
-			# }
-		#}
-		
-		# else = {
-			#custom_tooltip = nhs_starting_flagship_tt
-			#hidden_effect = {
-				# NHS = {
-					# capital_scope = {
-						# create_named_ship = {
-							# name = "Argo"
-							# type = heavy_ship
-						# }
-					# }
-				# }
-			#}
+			# custom_tooltip = nhs_new_flight_sold_morea_to_venice_tt
 		# }
+		# else_if = {
+			# limit = {
+				# has_country_flag = nhs_new_flight_sold_morea_to_genoa
+			# }
+			# custom_tooltip = nhs_new_flight_sold_morea_to_genoa_tt
+		# }
+		if = {
+			limit = {
+				has_country_flag = nhs_new_flight_taken_albanians
+			}
+			custom_tooltip = nhs_new_flight_taken_albanians_end_tt
+		}
+		# if = {
+			# limit = {
+				# has_country_flag = nhs_new_flight_ship_loses_gra
+			# }
+			# custom_tooltip = nhs_new_flight_ship_loses_gra_tt
+		# }
+		hidden_effect = {
+			NHS = {
+				add_corruption = -100
+			}	
+		}
 		BYZ = {
 			clr_country_flag = nhs_new_flight_food_status_4
 			clr_country_flag = nhs_new_flight_food_status_3
@@ -3431,7 +3420,7 @@ country_event = {
 		}
 		declare_war_with_cb = {
 			who = ALB
-			casus_belli = cb_conquest
+			casus_belli = cb_core
 			war_goal_province = 4175
 		}
 	}

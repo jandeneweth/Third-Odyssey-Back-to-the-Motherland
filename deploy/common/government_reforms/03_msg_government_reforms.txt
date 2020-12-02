@@ -391,7 +391,7 @@ msg_reform_land_ref = {
 					}
 				}
 			}
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_no_reform_in_past_year_tt
 				OR = {
@@ -439,7 +439,7 @@ msg_reform_land_ref = {
 			}
 		}
 		country_event = { id = msg_reforms.4 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -525,7 +525,7 @@ msg_reform_trade_ports_ref = {
 			}
 			dip_power = 50
 			num_of_ports = 10
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_no_reform_in_past_year_tt
 				OR = {
@@ -553,7 +553,7 @@ msg_reform_trade_ports_ref = {
 		add_treasury = -50
 		add_corruption = 2
 		country_event = { id = msg_reforms.3 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -639,7 +639,7 @@ msg_reform_gold_mine_ref = {
 				value = 3
 				trade_goods = gold
 			}
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_no_reform_in_past_year_tt
 				OR = {
@@ -671,7 +671,7 @@ msg_reform_gold_mine_ref = {
 		add_treasury = -100
 		add_dip_power = -50
 		country_event = { id = msg_reforms.2 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -934,7 +934,7 @@ msg_court_reform_ref = {
 			mil_power = 50
 			prestige = 20
 			num_of_cities = 25
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_no_reform_in_past_year_tt
 				OR = {
@@ -961,7 +961,7 @@ msg_court_reform_ref = {
 		add_mil_power = -50
 		add_prestige = -20
 		country_event = { id = msg_reforms.16 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -1066,7 +1066,7 @@ msg_diplomats_ref = {
 				}
 			}
 			dip_power = 50
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_no_reform_in_past_year_tt
 				OR = {
@@ -1093,7 +1093,7 @@ msg_diplomats_ref = {
 		add_dip_power = -50
 		add_treasury = -100
 		country_event = { id = msg_reforms.15 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -1178,7 +1178,7 @@ msg_naval_reform_ref = {
 			mil_power = 50
 			sailors = 500
 			num_of_ports = 10
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_no_reform_in_past_year_tt
 				OR = {
@@ -1205,7 +1205,7 @@ msg_naval_reform_ref = {
 		add_mil_power = -50
 		add_sailors = -500
 		country_event = { id = msg_reforms.14 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -1435,7 +1435,7 @@ msg_spartan_heralds_ref = {
 				stability = 1
 			}
 			adm_power = 50
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_no_reform_in_past_year_tt
 				OR = {
@@ -1459,7 +1459,7 @@ msg_spartan_heralds_ref = {
 		add_adm_power = -50
 		add_corruption = 3
 		country_event = { id = msg_reforms.6 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -1563,7 +1563,7 @@ msg_native_deities_ref = {
 			}
 			adm_power = 50
 			prestige = 20
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_needs_aztlan_for_reform
 				OR = {
@@ -1606,7 +1606,7 @@ msg_native_deities_ref = {
 		add_adm_power = -50
 		add_prestige = -20
 		country_event = { id = msg_reforms.7 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -1713,7 +1713,7 @@ msg_deify_leonidas_ref = {
 				stability = 0
 			}
 			adm_power = 50
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_needs_aztlan_for_reform
 				OR = {
@@ -1753,7 +1753,7 @@ msg_deify_leonidas_ref = {
 		#custom_tooltip = msg_add_stability_after
 		add_adm_power = -50
 		country_event = { id = msg_reforms.5 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -2000,7 +2000,7 @@ msg_aztlan_priesthood_ref = {
 				# stability = 1
 			# }
 			adm_power = 50
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_no_reform_in_past_year_tt
 				OR = {
@@ -2030,7 +2030,7 @@ msg_aztlan_priesthood_ref = {
 		# }
 		add_adm_power = -50
 		country_event = { id = msg_reforms.8 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -2135,7 +2135,7 @@ msg_old_faith_ref = {
 			}
 			adm_power = 50
 			prestige = 20
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_no_reform_in_past_year_tt
 				OR = {
@@ -2167,7 +2167,7 @@ msg_old_faith_ref = {
 		add_adm_power = -50
 		add_prestige = -20
 		country_event = { id = msg_reforms.9 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -2271,7 +2271,7 @@ msg_sacrifice_ref = {
 			}
 			adm_power = 50
 			legitimacy = 70
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_no_reform_in_past_year_tt
 				OR = {
@@ -2300,7 +2300,7 @@ msg_sacrifice_ref = {
 		add_adm_power = -50
 		add_legitimacy = -20
 		country_event = { id = msg_reforms.10 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -2627,7 +2627,7 @@ msg_spartan_patriarch_ref = {
 				stability = 1
 			}
 			adm_power = 50
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_no_reform_in_past_year_tt
 				OR = {
@@ -2658,7 +2658,7 @@ msg_spartan_patriarch_ref = {
 		add_adm_power = -50
 		add_corruption = 3
 		country_event = { id = msg_reforms.11 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -2777,7 +2777,7 @@ msg_holy_army_ref = {
 			}
 			mil_power = 50
 			manpower = 5
-			government_reform_progress = 25
+			# government_reform_progress = 25
 			custom_trigger_tooltip = {
 				tooltip = msg_no_reform_in_past_year_tt
 				OR = {
@@ -2808,7 +2808,7 @@ msg_holy_army_ref = {
 		add_mil_power = -50
 		add_manpower = -5
 		country_event = { id = msg_reforms.12 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
@@ -2959,7 +2959,7 @@ msg_saint_leo_ref = {
 		# }
 		add_adm_power = -50
 		country_event = { id = msg_reforms.13 }
-		change_government_reform_progress = -25
+		# change_government_reform_progress = -25
 		clr_country_flag = msg_reform_in_progress
 		set_country_flag = msg_reform_in_progress
 		if = {
